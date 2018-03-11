@@ -1,0 +1,832 @@
+/* css reset */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; } /* HTML5 display-role reset for older browsers */ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block; } body {line-height: 1; } ol, ul {list-style: none; } blockquote, q {quotes: none; } blockquote:before, blockquote:after, q:before, q:after {content: ''; content: none; } table {border-collapse: collapse; border-spacing: 0; }
+
+/*colores */
+@azulflojo: #9cb8d5; 
+@azulmedio: #7e9ab8;
+@azulnormal: #476484;
+@azuloscuro: #193145;
+
+body{
+	background-color: white;
+}
+/*fuentes*/
+@font-face {
+    font-family: 'Dosis-Light';
+    src: url('../assets/fonts/Dosis-Light.ttf') format('truetype'),
+}
+@font-face {
+    font-family: 'palaquin-bold';
+    src: url('../assets/fonts/PalanquinDark-Bold.ttf') format('truetype'),
+}
+
+@font-face {
+	font-family: 'ropa-sans';
+	src: url('../assets/fonts/RopaSans-Regular.ttf') format('truetype'),
+}
+
+@dosis-light: 'Dosis-Light';
+@palaquin-bold: 'palaquin-bold';
+@ropa-sans: 'ropa-sans';
+
+
+
+
+/*  Elementos generales  */
+*:focus{
+	outline: none;
+}
+.no-select{
+	-webkit-touch-callout: none;
+    -webkit-user-select: none; 
+     -khtml-user-select: none; 
+       -moz-user-select: none; 
+        -ms-user-select: none;
+            user-select: none;
+}
+
+.withoutmargin{
+	margin-top: 0px !important;
+	margin-left: 0px !important;
+	margin-right: 10px;
+}
+.rightspace{
+	margin-right: 10px;
+}
+.blue-button{
+	background-color: #193145;
+	p{
+		color: white !important;
+	}
+}
+
+a{
+	position: relative;
+	text-decoration: none;
+	.button{
+		
+	}
+}
+
+.separator{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	position: relative;
+	width: 100%;
+	height: 1px;
+	background-color: @azuloscuro;
+}
+
+.date-input{
+	position: relative;
+	width: 120px;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+	height: 20px;
+	border: 1px solid @azulmedio;
+	border-radius: 20px;
+	box-sizing: border-box;
+	float: left;
+	margin-right: 10px; 
+	padding-left: 10px;
+}
+.date-input::-webkit-inner-spin-button{
+	display: none;
+}
+.date-input::-webkit-datetime-edit-month-field,
+.date-input::-webkit-datetime-edit-day-field,
+.date-input::-webkit-datetime-edit-year-field{
+	color: @azulmedio;
+}
+.date-input::-webkit-calendar-picker-indicator { 
+	color: @azulmedio;
+}
+
+.date-room-input{
+	position: relative;
+	float: left;
+	margin-left: 10px;
+	margin-top: 20px;
+	height: 28px;
+	width: 120px;
+	border: 1px solid @azuloscuro;
+	border-radius: 20px;
+	padding-left: 10px;
+}
+.date-room-input::-webkit-inner-spin-button{
+	display: none;
+}
+.date-room-input::-webkit-datetime-edit-month-field,
+.date-room-input::-webkit-datetime-edit-day-field,
+.date-room-input::-webkit-datetime-edit-year-field{
+	color: @azulmedio;
+}
+.date-room-input::-webkit-calendar-picker-indicator { 
+	color: @azulmedio;
+}
+
+.page-content{
+	position: relative;
+	min-height: 40vh;
+	margin: 5% 0;
+	width: 100%;
+	margin-top: 120px;
+}
+.no-margin-top{
+	margin-top: 93px;
+}
+
+.icon{
+	position: relative;
+	width: 30px;
+	height: 30px;
+	.tag-icon{
+		position: absolute;
+		top: -5px;
+		right: 0px;
+		height: 20px;
+		display: none;
+		border: 1px solid black;
+		p{
+			position: absolute;
+			padding: 0px 5px;
+		}
+	}
+	svg{
+		position: relative;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.slider{
+	position: relative;
+	.slider-container{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		.slide{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+		}
+		.active{
+			opacity: 1;
+		}
+	}
+	.slider-controller{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		.prev-button, .next-button{
+			position: absolute;
+			top: 50%;
+			-webkit-transform: translateY(-50%);
+			-moz-transform: translateY(-50%);
+			-ms-transform: translateY(-50%);
+			-o-transform: translateY(-50%);
+			transform: translateY(-50%);
+			width: 30px;
+			height: 30px;
+			cursor: pointer;
+			svg{
+				position: relative;
+				width: 100%;
+				height: 100%;
+				fill: @azulmedio;
+			}
+			svg:hover{
+				fill: white;
+			}
+		}
+		.prev-button{
+			left: 5%;
+		}
+		.next-button{
+			right: 5%;
+		}
+	}
+	.slider-content{
+		position: absolute;
+		bottom: 10%;
+		left: 8%;
+		width: 60%;
+		p{
+			position: relative;
+			font-size: 3.5rem;
+			color: white;
+			font-family: @dosis-light;
+		}
+	}
+}
+
+.form-slider{
+	position: relative;
+	width: 60%;
+	margin: 0 auto;
+	.bigger-height{
+		height: 200px !important;
+	}
+	.medium-height{
+		height: 150px !important;
+	}
+	.form-slider-container{
+		position: relative;
+		width: 100%;
+		height: 65px;
+		margin-bottom: 30px;
+		.form-slider-page{
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			display: none;
+			opacity: 0;
+			.row-form{
+				position: relative;
+				width: 100%;
+				margin-bottom: 15px;
+				overflow: hidden;
+				.label{
+					position: relative;
+					width: 38%;
+					margin-right: 2%;
+					float: left;
+					p{
+						text-align: right;
+						font-size: 1.2rem;
+						font-family: @dosis-light;
+						color: @azuloscuro;
+					}
+				}
+				.input{
+					position: relative;
+					width: 60%;
+					float: left;
+					.icons-container{
+						position: relative;
+						svg{
+							position: relative;
+							width: 30px;
+							height: 30px;
+							margin-right: 10px;
+							cursor: pointer;
+						}
+						svg:last-child{
+							margin-right: 0px;
+						}
+						svg:hover{
+							fill: red;
+						}
+					}
+					select{
+						position: relative;
+						height: 25px;
+						border: 1px solid @azuloscuro;
+						border-radius: 20px;
+						padding: 0 10px;
+						cursor: pointer;
+					}
+					select:hover{
+						outline: none;
+					}
+					.input-text{
+						position: relative;
+						width: 100%;
+						height: 25px;
+						border: 1px solid @azuloscuro;
+						border-radius: 20px;
+						padding: 0 10px;
+					}
+					.input-text-area{
+						position: relative;
+						resize: none;
+						width: 100%;
+						height: 60px;
+						border: 1px solid @azuloscuro;
+						border-radius: 20px;
+						padding: 10px;
+					}
+				}
+			}
+			.row-form:last-child{
+				margin-bottom: 0px;
+			}
+		}
+	}
+	.conditions-container{
+		position: relative;
+		width: 100%;
+		margin-bottom: 30px;
+		display: none;
+		.condition-container{
+			position: relative;
+			width: 100%;
+			margin-bottom: 10px;
+			overflow: hidden;
+			input{
+				position: relative;
+				width: 5%;
+				height: 20px;
+				border: 1px solid red;
+				border-radius: 20px;
+				box-sizing: border-box;
+				float: left;
+			}
+			p{
+				position: relative;
+				width: 94%;
+				float: left;
+				color: @azuloscuro;
+			}
+		}
+	}
+	.precio{
+		position: relative;
+		float: right;
+		margin: 20px 0;
+		font-size: 1.4rem;
+		line-height: 1.9rem;
+		color: @azuloscuro;
+		.smaller{
+			font-size: 1.2rem;
+			line-height: 1.7rem;
+			color: @azulflojo;
+		}
+	}
+	.buttons{
+		position: relative;
+		width: 100%;
+		overflow: hidden;
+		.prev-button{
+			position: relative;
+			border: 1px solid @azuloscuro;
+			border-radius: 20px;
+			box-sizing: border-box;
+			margin-right: 30px;
+			float: right;
+			padding: 5px;
+			display: none;
+			cursor: pointer;
+			p{
+				position: relative;
+				padding: 0 10px;
+			}
+		}
+		.next-button{
+			position: relative;
+			border: 1px solid @azuloscuro;
+			border-radius: 20px;
+			box-sizing: border-box;
+			float: right;
+			cursor: pointer;
+			padding: 5px;
+			p{
+				position: relative;
+				padding: 0 10px;
+			}
+		}
+		.cancel-button{
+			position: relative;
+			border: 1px solid @azuloscuro;
+			border-radius: 20px;
+			box-sizing: border-box;
+			margin-right: 30px;
+			padding: 5px;
+			float: right;
+			cursor: pointer;
+			p{
+				position: relative;
+				padding: 0 10px;
+			}
+		}
+		.confirm-button{
+			position: relative;
+			border: 1px solid @azuloscuro;
+			border-radius: 20px;
+			box-sizing: border-box;
+			float: right;
+			padding: 5px;
+			cursor: pointer;
+			p{
+				position: relative;
+				padding: 0 10px;
+			}
+		}
+	}
+}
+
+.go-to-valuations-button{
+	position: relative;
+	overflow: hidden;
+	margin: 0 auto;
+	width: 370px;
+	margin-top: 50px;
+	border: 1px solid #193145;
+	cursor: pointer;
+	border-radius: 20px;
+	.icon{
+		float: left;
+		position: relative;
+		margin-top: 10px;
+		margin-left: 10px;
+		padding-left: 15px;
+		padding-right: 5px;
+		padding-bottom: 10px;
+
+		height: 30px;
+		width: 30px;
+		cursor: pointer;
+		svg{
+			position: relative;
+			width: 100%;
+			height: 100%;
+		}
+	}
+	p{
+
+		float: left;
+		padding-left: 30px;
+		padding-top: 15px;
+		text-align: center;
+		position: relative;
+		font-size: 1rem;
+		font-family: @dosis-light;
+
+		color: #193145;
+	}
+}
+
+.title-page{
+	position: relative;
+	margin-bottom: 3%;
+	p.subtitle{
+		text-align: center;
+		font-size: 2rem;
+		font-family: @ropa-sans;
+		line-height: 2.5rem;
+		color: #193145;
+	}
+	p{
+		text-align: center;
+		font-size: 2.5rem;
+		font-family: @ropa-sans;
+		line-height: 3rem;
+		color: @azuloscuro; 
+	}
+}
+
+/* Tamaños del ancho */
+.big-width{
+	width: 100%;
+}
+
+/* solo para footer y header */
+.medium-width{ 
+	width: 92%;
+	margin-right: 4%;
+	margin-left: 4%;
+}
+
+.small-width{
+	width: 84%;
+	margin-left: 8%;
+	margin-right: 8%;
+}
+
+/*  Header  */
+header{
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 4;
+	background-color: white;
+	width: 100%;
+	border-bottom: 3px solid @azulflojo;
+	.header-wrapper{
+		position: relative;
+		overflow: hidden;
+		margin-top: 20px;
+		padding-bottom: 10px;
+		a{
+			position: relative;
+			text-decoration: none;
+			.logo-container{
+				position: relative;
+				width: 240px;
+				height: 60px;
+				margin-right: 50px;
+				float: left;
+				cursor: pointer;
+				img{
+					position: relative;
+					width: 100%;
+					height: 100%;
+				}
+			}
+		}
+		.title-container{
+			position: relative;
+			margin-right: 50px;
+			height: 30px;
+			box-sizing: border-box;
+			float: left;
+			h1{
+				font-family: @palaquin-bold;
+				font-size: 2rem;
+				text-decoration: none;
+				cursor: pointer;
+				color: @azulmedio;
+				padding: 0 10px;
+			}
+		}
+		.links-container{
+			position: relative;
+			margin-top: 40px;
+			margin-right: 50px;
+			height: 30px;
+			box-sizing: border-box;
+			ul{
+				position: relative;
+				top: 50%;
+				-webkit-transform: translateY(-50%);
+				-moz-transform: translateY(-50%);
+				-ms-transform: translateY(-50%);
+				-o-transform: translateY(-50%);
+				transform: translateY(-50%);		
+				overflow: hidden;
+				li{
+					float: left;
+					text-decoration: none;
+					a{
+						font-family: @dosis-light;
+						text-decoration: none;
+						cursor: pointer;
+						color: @azulmedio;
+						padding: 0 10px;
+					}
+					a:hover{
+						color: @azuloscuro;
+					}
+				}
+			}
+		}
+
+	}
+}
+
+
+/******Páginas******/
+/*  Index page  */
+.index-page{
+	.menu{
+		position: relative;
+		width: 13%;
+		overflow: hidden;
+		float: left;
+		margin-top: 30px;
+	}
+	.categorias{
+		position: relative;
+		padding-top: 5%;
+		.title{
+			position: relative;
+			font-size: 2rem;
+			font-family: @ropa-sans;
+			color: @azuloscuro;
+			margin-bottom: 30px;
+		}
+		.categorias-cards-container{
+			position: relative;
+			width: 75%;
+			overflow: hidden;
+			.offer-card-container{
+				position: relative;
+				float: left;
+				width: 30%;
+				margin-right: 5%;
+				.photo-container{
+					position: relative;
+					width: 100%;
+					height: 250px;
+					background-position: center;
+					background-size: cover;
+					background-repeat: no-repeat;
+					.discount{
+						position: absolute;
+						top: 0px;
+						right: 0px;
+						width: 40px;
+						height: 20;
+						background-color: rgba(255,255,255,0.5);
+						padding: 5px;
+						p{
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							color: @azuloscuro;
+							-webkit-transform: translateY(-50%) translateX(-50%);
+							-moz-transform: translateY(-50%) translateX(-50%);
+							-ms-transform: translateY(-50%) translateX(-50%);
+							-o-transform: translateY(-50%) translateX(-50%);
+							transform: translateY(-50%) translateX(-50%);
+						}
+					}
+				}
+				.title{
+					position: relative;
+					font-size: 1.5rem;
+					font-family: @ropa-sans;
+					color: @azuloscuro;
+					margin: 15px 0;
+					padding-right: 5%;
+				}
+				.description{
+					position: relative;
+					font-size: 1.2rem;
+					font-family: @dosis-light;
+					color: @azuloscuro;
+					margin-bottom: 15px;
+					padding-right: 5%;
+				}
+				a{
+					overflow: hidden;
+					.price-button{
+						position: relative;
+						padding: 5px;
+						width: 73px;
+						float: left;
+						cursor: pointer;
+						border: 1px solid @azuloscuro;
+						border-radius: 20px; 
+						p{
+							position: relative;
+
+							padding: 0px 10px;
+							font-size: 1rem;
+							font-family: @dosis-light;
+							color: @azuloscuro;
+						}
+					}				
+				}
+			}
+			.offer-card-container:nth-child(3n){
+				margin-right: 0px;
+			}
+		}
+		
+	}
+	.go-to-valuations-button{
+			position: relative;
+			overflow: hidden;
+			cursor: pointer;
+			margin: 0 auto;
+			width: 230px;
+			margin-top: 50px;
+			border: 1px solid @azuloscuro;
+			border-radius: 20px;
+			p{
+				position: relative;
+				float: left;
+				padding-left: 50px;
+				padding-top: 5px;
+				padding-bottom: 5px;
+				font-size: 1rem;
+				font-family: @dosis-light;
+				color: @azuloscuro;
+			}
+		}
+}
+
+/*  Footer   */
+footer{
+	position: relative;
+	width: 100%;
+	border-top: 3px solid @azulmedio;
+	.footer-wrapper{
+		position: relative;
+		margin-top: 60px;
+		margin-bottom: 30px;
+		overflow: hidden;
+		.contact-container{
+			position: relative;
+			width: 20%;
+			margin-right: 3%;
+			float: left;
+			.title{
+				position: relative;
+				text-transform: uppercase;
+				font-size: 1.1rem;
+				font-family: @ropa-sans;
+				margin-bottom: 15px;
+				color: @azuloscuro;
+			}
+			.address, .telephone, .email{
+				position: relative;
+				font-size: 1rem;
+				font-family: @dosis-light;
+				color: @azulnormal;
+				line-height: 1.5rem;
+				span:hover{
+					color: @azuloscuro;
+				}
+			}
+			a{
+				position: relative;
+				text-decoration: none;
+				.email{
+
+				}
+			}
+			.address{
+				cursor: pointer;
+			}
+			.address:hover{
+				color: @azuloscuro;
+			}
+			.email span:hover{
+				color: @azuloscuro;
+			}
+		}
+		.time-container{
+			position: relative;
+			width: 20%;
+			float: left;
+			.title{
+				position: relative;
+				text-transform: uppercase;
+				font-size: 1.1rem;
+				font-family: @ropa-sans;
+				color: @azuloscuro;
+				margin-bottom: 15px;
+			}
+			.time, .hour{
+				overflow: hidden;
+				margin-bottom: 10px;
+				p{
+					font-size: 1rem;
+					font-family: @dosis-light;
+					color: @azulnormal;
+					float: left;
+					margin-top: 7px;
+					margin-left: 10px;
+				}
+				svg{
+					position: relative;
+					width: 30px;
+					height: 30px;
+					float: left;
+				}
+			}
+			.hour{
+				margin-bottom: 0px;
+				svg{
+					width: 28px;
+					height: 28px;
+				}
+			}
+		}
+		.social-copyright-container{
+			position: absolute;
+			bottom: 0px;
+			right: 0px;
+			width: 300px;
+			overflow: hidden;
+			.social{
+				position: relative;
+				float: right;
+				margin-bottom: 15px;
+				svg{
+					position: relative;
+					float: left;
+					width: 25px;
+					height: 25px;
+					margin-right: 15px;
+					cursor: pointer;
+				}
+				svg:last-child{
+					margin-right: 0px;
+				}
+			}
+			.copyright{
+				position: relative;
+				float: right;
+				p{
+					position: relative;
+					font-size: 0.8rem;
+					font-family: @dosis-light;
+					color: @azulnormal;
+				}
+			}
+
+		}
+	}
+}
