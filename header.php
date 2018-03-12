@@ -3,6 +3,14 @@
         <meta charset="UTF-8">
         <title>Modern Museum</title>
         <link href="css/app.css" rel="stylesheet">
+        
+        <!-- LINK PARA LOS BOTONES SOCIALES -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!-- LINK PARA EL BOTON DE IMPRIMIR -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <link href='https://fonts.googleapis.com/css?family=Assistant' rel='stylesheet'>
     </head>
     <body>
     <header>
