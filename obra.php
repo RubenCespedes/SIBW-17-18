@@ -10,6 +10,48 @@
         </aside>
 
         <div class="contenido-obra">
+
+            <!-- CONTENEDOR PARA COMENTARIOS -->
+            <div id="contenedor" class="contenedor-comentarios">
+
+                <!-- CRUZ PARA CERRAR -->
+                <span class="close" onclick="ocultarComentarios()">&times;</span>
+
+                <!-- COMENTARIO PREDETERMINADO 1 -->
+                <div class="comentario">
+                    <div class="superior">
+                        <div class="autor"><p><strong>AUTOR:</strong> MANOLO CORTES MALDONADO</p></div>
+                        <div class="contenedor-fecha"><div class="fecha"><p>FECHA: 12/03/2018</p></div><div class="hora"><p>HORA: 12:55</p></div></div>
+                    </div>
+                    <div class="inferior"><p>TEXTO</p></div>
+                </div>
+
+                <!-- COMENTARIO PREDETERMINADO 2 -->
+                <div class="comentario">
+                    <div class="superior">
+                        <div class="autor"><p>AUTOR: MANOLO CORTES MALDONADO</p></div>
+                        <div class="contenedor-fecha"><div class="fecha"><p>FECHA: 12/03/2018</p></div><div class="hora"><p>HORA: 12:55</p></div></div>
+                    </div>
+                    <div class="inferior"><p>TEXTO</p></div>
+                </div>
+                
+                <form class="form" target="_blank">
+                    <label for="fname">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Introduce tu nombre..." required>
+
+                    <label for="lname">Apellidos</label>
+                    <input type="text" id="apellidos" name="apellidos" placeholder="Introduce tu/s apellido/s..." required>
+
+                    <label for="mail">Correo electronico</label>
+                    <input type="email" id="correo" name="correo" placeholder="Introduce tu correo electronico..." required>
+
+                    <label for="comment">Comentario</label>
+                    <textarea id="comentario" name="comentario" placeholder="Introduce tu comentario..." onkeyup="deteccion()" required></textarea>
+
+                    <input type="reset" value="Enviar" onclick="aniadir_comentario()">
+                </form>
+            </div>
+
         	<!-- IMAGEN DE LA OBRA -->
         	<img src="assets\image\prueba.jpg" alt="AQUI VA LA IMAGEN" width="95%" height="70%">
 
@@ -40,6 +82,13 @@
                 <a class="hiperenlace-imprimir">
                     <i class="material-icons print">print</i>
                 </a>
+            </div>
+
+            <!-- CONTENEDOR DEL BOTON DE COMENTARIOS -->
+            <div class="contenedor-boton-comentarios">
+                <button class="boton-comentarios" onclick="desplegarComentarios()">
+                    <p>VER COMENTARIOS</p>
+                </button>
             </div>
 
         	<!-- ENLACES EXTERNOS -->
