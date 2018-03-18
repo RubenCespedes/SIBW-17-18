@@ -20,19 +20,23 @@
                 <!-- COMENTARIO PREDETERMINADO 1 -->
                 <div class="comentario">
                     <div class="superior">
-                        <div class="autor"><p><strong>AUTOR:</strong> MANOLO CORTES MALDONADO</p></div>
-                        <div class="contenedor-fecha"><div class="fecha"><p>FECHA: 12/03/2018</p></div><div class="hora"><p>HORA: 12:55</p></div></div>
+                        <div class="autor"><p><strong>AUTOR: nombre apellidos apellidos</p></div>
+                        <div class="contenedor-fecha"><div class="fecha"><p>FECHA: dd/mm/aaaa</p></div><div class="hora"><p>HORA: hh:mm</p></div></div>
                     </div>
-                    <div class="inferior"><p>TEXTO</p></div>
+                    <div class="inferior">
+                        <p>Esto es un texto de prueba. Esto es un texto de prueba. Esto es un texto de prueba. Esto es un texto de prueba. Esto es un texto de prueba.</p>
+                    </div>
                 </div>
 
                 <!-- COMENTARIO PREDETERMINADO 2 -->
                 <div class="comentario">
                     <div class="superior">
-                        <div class="autor"><p>AUTOR: MANOLO CORTES MALDONADO</p></div>
-                        <div class="contenedor-fecha"><div class="fecha"><p>FECHA: 12/03/2018</p></div><div class="hora"><p>HORA: 12:55</p></div></div>
+                        <div class="autor"><p>AUTOR: nombre apellidos apellidos</p></div>
+                        <div class="contenedor-fecha"><div class="fecha"><p>FECHA: dd/mm/aaaa</p></div><div class="hora"><p>HORA: hh:mm</p></div></div>
                     </div>
-                    <div class="inferior"><p>TEXTO</p></div>
+                    <div class="inferior">
+                        <p>Esto es un texto de prueba. Esto es un texto de prueba. Esto es un texto de prueba. Esto es un texto de prueba. Esto es un texto de prueba.</p>
+                    </div>
                 </div>
                 
                 <form class="form" target="_blank">
