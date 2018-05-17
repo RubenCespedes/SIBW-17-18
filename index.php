@@ -1,73 +1,219 @@
-<?php include 'header.php';?>
+<!DOCTYPE html>
+<html>
 
-    <section class="index-page page-content no-margin-top">
+<?php
+	
+	include 'BD.php';
+	
+	if(empty($_GET)){
+		
+		/* MOSTRAMOS EL INDEX */
+		$ids = array();
 
-        <aside class="menu small-width">
+		$modelo = new Model();
+		$modelo->conectar();
 
-            <p>Sidebar de prueba. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Mendrerit id, lorem. Maecenas nec odio e sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,</p>
-        </aside>
-        <div class="categorias small-width">
-            <p class="title">Últimas ofertas</p>
-            <div class="categorias-cards-container">
-                <div class="offer-card-container">
-                    <div class="photo-container" style="background-image: url('assets/image/museo-prueba.jpg');">
-                        <div class="discount"><p>1</p></div>
-                    </div>
-                    <div class="title">Prueba | <span class="smaller-txt">Íncreible</span></div>
-                </div>
-                <div class="offer-card-container">
-                    <div class="photo-container" style="background-image: url('assets/image/museo-prueba.jpg');">
-                        <div class="discount"><p>2</p></div>
-                    </div>
-                    <div class="title">Prueba | <span class="smaller-txt">Íncreible</span></div>
-                </div>
-                <div class="offer-card-container">
-                    <div class="photo-container" style="background-image: url('assets/image/museo-prueba.jpg');">
-                        <div class="discount"><p>3</p></div>
-                    </div>
-                    <div class="title">Prueba | <span class="smaller-txt">Íncreible</span></div>
-                </div>
-                <div class="offer-card-container">
-                    <div class="photo-container" style="background-image: url('assets/image/museo-prueba.jpg');">
-                        <div class="discount"><p>4</p></div>
-                    </div>
-                    <div class="title">Prueba | <span class="smaller-txt">Íncreible</span></div>
-                </div>
-                <div class="offer-card-container">
-                    <div class="photo-container" style="background-image: url('assets/image/museo-prueba.jpg');">
-                        <div class="discount"><p>5</p></div>
-                    </div>
-                    <div class="title">Prueba | <span class="smaller-txt">Íncreible</span></div>
-                </div>
-                <div class="offer-card-container">
-                    <div class="photo-container" style="background-image: url('assets/image/museo-prueba.jpg');">
-                        <div class="discount"><p>6</p></div>
-                    </div>
-                    <div class="title">Prueba | <span class="smaller-txt">Íncreible</span></div>
-                </div>
-                <div class="offer-card-container">
-                    <div class="photo-container" style="background-image: url('assets/image/museo-prueba.jpg');">
-                        <div class="discount"><p>7</p></div>
-                    </div>
-                    <div class="title">Prueba | <span class="smaller-txt">Íncreible</span></div>
-                </div>
-                <div class="offer-card-container">
-                    <div class="photo-container" style="background-image: url('assets/image/museo-prueba.jpg');">
-                        <div class="discount"><p>8</p></div>
-                    </div>
-                    <div class="title">Prueba | <span class="smaller-txt">Íncreible</span></div>
-                </div>
-                <div class="offer-card-container">
-                    <div class="photo-container" style="background-image: url('assets/image/museo-prueba.jpg');">
-                        <div class="discount"><p>9</p></div>
-                    </div>
-                    <div class="title">Prueba | <span class="smaller-txt">Íncreible</span></div>
-                </div>
+		while(count($ids) < 9){	// Necesitamos obtener los identificadores de 9 obras distintas
+			$random = rand(1, $modelo->obtenerUltimaObra());
 
-            </div>
-        </div>
-    </section>
+			while(in_array($random, $ids)){
+				$random = rand(1, $modelo->obtenerUltimaObra());
+			}
 
-<?php include 'footer.php';?>
+			array_push($ids, $random);
+		}
 
-        
+		$paths = array();
+		$titulos = array();
+		$autores = array();
+
+		for($x = 0; $x < 9; $x++){
+			array_push($paths, $modelo->obtenerImagenObra($ids[$x]));
+			array_push($titulos, $modelo->obtenerTituloObra($ids[$x]));
+			array_push($autores, $modelo->obtenerAutorObra($ids[$x]));
+		}
+
+		$modelo->desconectar();
+
+		include 'plantillaMainPage.php';
+
+		$vista = new Vista();
+		$vista->imprimirIndex($ids, $paths, $titulos, $autores, $ids);
+	} else {
+		if(!empty($_GET["obra"])){
+
+		    $model = new Model();
+			$model->conectar();
+
+			$ultimaID = $model->obtenerUltimaObra();
+
+			if($_GET["obra"] <1 OR $_GET["obra"] > $ultimaID){
+			    exit("Has introducido una URL maliciosa");
+            }
+
+            $id = $_GET["obra"];
+			$path = $model->obtenerImagenObra($id);
+			$autor = $model->obtenerAutorObra($id);
+			$biografia = $model->obtenerBiografiaAutor($autor);
+			$titulo = $model->obtenerTituloObra($id);
+			$datacion = $model->obtenerDatacionObra($id);
+			$descripcion = $model->obtenerDescripcionObra($id);
+			$ids = $model->obtenerObrasAutor($autor);
+
+			$titulo_obras = array();
+
+			for($x = 0; $x < count($ids); $x++){
+				array_push($titulo_obras, $model->obtenerTituloObra($ids[$x]));
+			}
+
+			$comentarios = $model->obtenerComentariosObra($id);
+			$autores_comentarios = array();
+			$fechas_comentarios = array();
+			$horas_comentarios = array();
+			$textos_comentarios = array();
+
+			for($x = 0; $x < count($comentarios); $x++){
+				array_push($autores_comentarios, $model->obtenerAutorComentario($comentarios[$x]));
+				array_push($fechas_comentarios, $model->obtenerFechaComentario($comentarios[$x]));
+				array_push($horas_comentarios, $model->obtenerHoraComentario($comentarios[$x]));
+				array_push($textos_comentarios, $model->obtenerTextoComentario($comentarios[$x]));
+			}
+	
+			$model->desconectar();
+
+			// INICIO LOGICA VALIDACION FORMULARIO
+            $nombreErr = $emailErr = $textoErr = "";
+            $nombre = $email = $texto = "";
+
+            if($_SERVER["REQUEST_METHOD"] == "POST"){
+                validarFormulario();
+            }
+
+			include 'plantillaObra.php';
+
+			$vista = new Vista();
+			$vista->imprimirObra($id, $path, $autor, $biografia, $titulo, $datacion, $descripcion, $ids, $titulo_obras, $autores_comentarios, $fechas_comentarios, $horas_comentarios, $textos_comentarios, $nameErr, $emailErr, $textoErr);
+		} else if(!empty($_GET["obra_imprimir"])){
+
+
+			$model = new Model();
+			$model->conectar();
+
+			$ultimaID = $model->obtenerUltimaObra();
+
+            if($_GET["obra_imprimir"] <1 OR $_GET["obra_imprimir"] > $ultimaID){
+                exit("Has introducido una URL maliciosa");
+            }
+
+            $id = $_GET["obra_imprimir"];
+			$titulo = $model->obtenerTituloObra($id);
+			$datacion = $model->obtenerDatacionObra($id);
+			$path = $model->obtenerImagenObra($id);
+			$autor = $model->obtenerAutorObra($id);
+			$biografia = $model->obtenerBiografiaAutor($autor);
+			$descripcion = $model->obtenerDescripcionObra($id);
+			$obras = $model->obtenerObrasAutor($autor);
+
+			$titulo_obras = array();
+
+			for($x = 0; $x < count($obras); $x++){
+				array_push($titulo_obras, $model->obtenerTituloObra($obras[$x]));
+			}
+
+			$model->desconectar();
+
+			include 'plantillaObraImprimir.php';
+
+			$vista = new Vista();
+			$vista->imprimirObraImprimir($titulo, $datacion, $path, $autor, $biografia, $descripcion, $titulo_obras);
+		} else if(!empty($_GET["coleccion"])){
+
+            $model = new Model();
+            $model->conectar();
+
+            $ultimaID = $model->obtenerUltimaColeccion();
+
+            if($_GET["coleccion"] <1 OR $_GET["coleccion"] > $ultimaID){
+                exit("Has introducido una URL maliciosa");
+            }
+
+            $id_coleccion = $_GET["coleccion"];
+            $nombre_coleccion = $model->obtenerNombreColeccion($id_coleccion);
+            $ids = $model->obtenerObrasColeccion($id_coleccion);
+            $titulos = array();
+            $paths = array();
+            $autores = array();
+            for($x = 0; $x < count($ids); $x++) {
+                array_push($titulos, $model->obtenerTituloObra($ids[$x]));
+                array_push($paths, $model->obtenerImagenObra($ids[$x]));
+                array_push($autores, $model->obtenerAutorObra($ids[$x]));
+            }
+
+            $model->desconectar();
+
+            include 'plantillaColecciones.php';
+
+            $vista = new Vista();
+            $vista->imprimirColecciones($paths, $titulos, $autores, $ids, $nombre_coleccion);
+        } else if(!empty($_GET["pagina"])){
+
+		    if($_GET["pagina"] != "aboutus"){
+                exit("Has introducido una URL maliciosa");
+            }
+
+            include 'controladorAboutUs.php';
+        }
+	}
+
+	function validarFormulario(){
+
+	    global $nombreErr, $emailErr, $textoErr, $nombre, $email, $texto;
+
+        if(empty($_POST["nombre"])){
+            $nombreErr = "Nombre requerido";
+        } else {
+            $nombre = test_input($_POST["nombre"]) . " ";
+
+            if(!preg_match("/^[a-zA-Z ]*$/",$nombre)) {
+                $nombreErr = "Solo se permiten letras y espacios";
+            }
+
+        }
+
+        if(empty($_POST["apellidos"])){
+            $nombreErr = "Nombre requerido";
+        } else {
+            $nombre = $nombre . test_input($_POST["apellidos"]);
+
+            if(!preg_match("/^[a-zA-Z ]*$/",$nombre)) {
+                $nombreErr = "Solo se permiten letras y espacios";
+            }
+        }
+
+        if(empty($_POST["correo"])){
+            $emailErr = "Correo requerido";
+        } else {
+            $email = test_input($_POST["correo"]);
+
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $emailErr = "Formato de correo invalido";
+            }
+        }
+
+        if(empty($_POST["comentario"])){
+            $textoErr = "Comentario requerido";
+        } else {
+            $texto = test_input($_POST["comentario"]);
+        }
+    }
+
+    function test_input($data){
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+
+        return $data;
+    }
+?>
+
+</html>

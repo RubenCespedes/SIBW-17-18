@@ -1,4 +1,6 @@
-		<footer>
+<?php
+	function imprimirFooter(){
+		echo '<footer>
 			<div class="footer-wrapper medium-width">
 				<div class="contact-container">
 					<p class="title no-select">CONTACTO</p>
@@ -36,8 +38,7 @@
         <script src="js/TimelineMax.min.js"></script>
         <script src="js/TweenLite.min.js"></script>
         <script src="js/TweenMax.min.js"></script>
-        <script type="text/javascript" src="http://localhost/torreluz/clickheat/js/clickheat.js"></script><noscript><p><a href="http://www.dugwood.com/clickheat/index.html">ClickHeat</a></p></noscript><script type="text/javascript"><!--
-            clickHeatSite = 'torreluz';clickHeatGroup = encodeURIComponent(window.location.pathname+window.location.search);clickHeatServer = 'http://localhost/torreluz/clickheat/click.php';initClickHeat(); //-->
-        </script>
-    </body>
-</html>
+        ';
+	}
+	
+?>
