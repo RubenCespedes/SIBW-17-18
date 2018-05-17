@@ -95,7 +95,7 @@ function initializePage(){
 	}else if($(".page-content").hasClass("payment-page")){
 		$("header .bread-crumb").find("p").append("<a href='rooms.php'>Habitaciones</a> > <a href='booking.php'>Realizar reserva</a> > Realizar pago");
 	}else if($(".page-content").hasClass("contact-page")){
-		$("header .bread-crumb").find("p").append("<a href='aboutus.php'>Sobre nosotros</a> > Envíanos un mensaje");
+		$("header .bread-crumb").find("p").append("<a href='vista-aboutus.php'>Sobre nosotros</a> > Envíanos un mensaje");
 	}else if($(".page-content").hasClass("offers-page")){
 		$("header .bread-crumb").find("p").append("Ofertas");
 	} else if($(".page-content").hasClass("single-room-page")){
