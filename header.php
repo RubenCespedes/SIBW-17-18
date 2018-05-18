@@ -6,7 +6,7 @@
 	    			<img src=\"./assets/image/logo.png\">
 	    		</div></a>
 	            <div class='title-container'>
-	                <h1>Modern Museum</h1>
+	                <a href=\"index.php\"><h1>Modern Museum</h1></a>
 	            </div>
 	    		<div class='links-container'>
 	    			<ul>
@@ -19,3 +19,5 @@
 	    </header>";
 	}
 ?>
+
+

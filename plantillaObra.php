@@ -52,7 +52,7 @@
 
 	        	<!-- IMAGEN DE LA OBRA -->
 	        	<div>
-	        		<img class="imagen_obra" src="' . $path . '" alt="AQUI VA LA IMAGEN">
+	        		<img src="' . $path . '" alt="AQUI VA LA IMAGEN" style="max-width:1060px;max-height:560px;margin-left:30.5%">
 	        	</div>
 
 	        	<!-- PIE DE LA IMAGEN DE LA OBRA -->
@@ -77,10 +77,10 @@
 	        	<!-- BOTONES SOCIALES -->
 	        	<div class="botones-sociales">
 	        	    
-	                <a href="#" class="fa fa-facebook" id="FB" onclick="mostrarSocialMedia(\'facebook\')"></a>
-	                <a href="#" class="fa fa-twitter" id="TWT" onclick="mostrarSocialMedia(\'twitter\')"></a>
+	                <a href="#" class="fa fa-facebook" id="FB" onclick="mostrarSocialMedia()"></a>
+	                <a href="#" class="fa fa-twitter" id="TWT" onclick="mostrarSocialMedia()"></a>
 	                <a href="#" class="fa fa-google"></a>
-	                <a class="hiperenlace-imprimir">
+	                <a href="index.php?obra_imprimir=' . $id .'" class="hiperenlace-imprimir">
 	                    <i class="material-icons print">print</i>
 	                </a>
 	                

@@ -33,8 +33,7 @@ class Vista {
                 <span class="bigger-txt">Dirección:</span> C/ Plaza Flores, 8 . España, Almería - Almería
             </p>
             <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d399.13532975966274!2d-2.4654140890111607!3d36.84049686892777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8543ced39306f5e2!2sHotel+Torreluz+Centro!5e0!3m2!1ses!2ses!4v1494069223574"  frameborder="0" style="border:0"></iframe>
-            </div>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2234.125864150221!2d-3.191356584253135!3d55.947190380605875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4887c784d1bae421%3A0x88cc2703f2beb5c3!2sMuseo+de+Escocia!5e0!3m2!1ses!2ses!4v1524490492719" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>            </div>
         </div>
     </section>';
 

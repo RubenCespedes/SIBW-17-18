@@ -43,7 +43,7 @@ class Vista {
 	                    <div class="photo-container" style="background-image: url(\'' . $path . '\');">
 	                        <div class="discount"><p>' . $num . '</p></div>
 	                    </div>
-	                    <div class="title"><a href=\index.php?obra=' . $id . '>' . $titulo . ' | <span class="smaller-txt">' . $autor . '</span></a></div>
+	                    <div class="title"><a href=index.php?obra=' . $id . '>' . $titulo . ' | <span class="smaller-txt">' . $autor . '</span></a></div>
 	                </div>';
     }
 }
