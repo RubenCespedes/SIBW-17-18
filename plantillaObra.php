@@ -52,7 +52,7 @@
 
 	        	<!-- IMAGEN DE LA OBRA -->
 	        	<div>
-	        		<img src="' . $path . '" alt="AQUI VA LA IMAGEN" style="max-width:1060px;max-height:560px;margin-left:30.5%">
+	        		<img src="' . $path . '" alt="AQUI VA LA IMAGEN" style="max-width: 1060px;max-height: 560px;display: block;margin-left: auto;margin-right: auto;width: 50%;">
 	        	</div>
 
 	        	<!-- PIE DE LA IMAGEN DE LA OBRA -->
