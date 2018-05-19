@@ -4,10 +4,13 @@
 
 		}
 
-		function imprimirObra($id, $path, $autor, $biografia, $titulo, $datacion, $descripcion, $ids, $titulo_obras, $autores_comentarios, $fechas_comentarios, $horas_comentarios, $textos_comentarios, $nameErr, $emailErr, $textoErr){
+		function imprimirObra($id, $path, $autor, $biografia, $titulo, $datacion, $descripcion, $ids, $titulo_obras, $autores_comentarios, $fechas_comentarios, $horas_comentarios, $textos_comentarios, $nameErr, $emailErr, $textoErr, $palabras){
+
 			include 'head.php';
 			include 'header.php';
 			include 'footer.php';
+
+			$glue = "','";
 
 			imprimirHead();
 
@@ -44,7 +47,7 @@
 	                    <input type="email" id="correo" name="correo" placeholder="Introduce tu correo electronico..." required>
 
 	                    <label for="comment">Comentario</label><span class="error">* ' . $textoErr . '</span>
-	                    <textarea id="comentario" name="comentario" placeholder="Introduce tu comentario..." onchange="deteccion()" required></textarea>
+	                    <textarea id="comentario" name="comentario" placeholder="Introduce tu comentario..." onkeyup="forbiddenWords()" required></textarea>
 
 	                    <input type="submit" name="submit" value="Enviar">
 	                </form>
@@ -129,7 +132,7 @@
                         </div>
                     </div>
                 
-                </section>
+                </section><p id="demo"></p>
             </body>';
 
 		    imprimirFooter();
