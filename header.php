@@ -16,6 +16,43 @@
 	    			</ul>
 	    		</div>
 	        </div>
+
+	        <!-- Button to open the modal Sign Up form -->
+			<button onclick=\"document.getElementById('id02').style.display='block'\" class=\"signbtn\">Sign Up</button>
+
+			<!-- The Modal (contains the Sign Up form) -->
+			<div id=\"id02\" class=\"modal2\">
+			  <span onclick=\"document.getElementById('id02').style.display='none'\" class=\"close\" title=\"Close Sign Up\">&times;</span>
+			  
+			  <!-- Modal Content -->
+			  <form class=\"modal-content\" action=\"validation.php\" method=\"post\">
+			    <div class=\"container\">
+			      <h1>Sign Up</h1>
+			      <p>Please fill in this form to create an account.</p>
+			      <hr>
+			      <label for=\"firstname\"><b>First Name</b></label>
+			      <input type=\"text\" placeholder=\"Enter First Name\" name=\"firstname\" required>
+
+			      <label for=\"lastname\"><b>Last Name</b></label>
+			      <input type=\"text\" placeholder=\"Enter Last Name\" name=\"lastname\" required>
+
+			      <label for=\"email\"><b>Email</b></label>
+			      <input type=\"text\" placeholder=\"Enter Email\" name=\"email\" required>
+			      
+			      <label>
+			        <input type=\"checkbox\" checked=\"checked\" name=\"remember\" style=\"margin-bottom:15px\"> Remember me
+			      </label>
+
+			      <p>By creating an account you agree to our <a href=\"#\" style=\"color:dodgerblue\">Terms & Privacy</a>.</p>
+
+			      <div class=\"clearfix\">
+			        <button type=\"button\" onclick=\"document.getElementById('id02').style.display='none'\" class=\"cancelbtn\">Cancel</button>
+			        <button type=\"submit\" class=\"signupbtn\">Sign Up</button>
+			      </div>
+			    </div>
+			  </form>
+			</div>
+
 	        <!-- Button to open the modal login form -->
 			<button class=\"loginbtn\" onclick=\"document.getElementById('id01').style.display='block'\">Login</button>
 
@@ -25,7 +62,7 @@
 			class=\"close\" title=\"Cerrar login\">&times;</span>
 
 			  <!-- Modal Content -->
-			  <form class=\"modal-content animate\" action=\"/action_page.php\">
+			  <form class=\"modal-content animate\" action=\"validation.php\" method=\"post\">
 			    <div class=\"imgcontainer\">
 			      <img src=\"/images/img_avatar2.png\" alt=\"Avatar\" class=\"avatar\">
 			    </div>
