@@ -380,6 +380,22 @@
 			$sentencia->close();
 		}
 
+		function obtenerRolUsuario($nombre){
+			$sentencia = $this->conexion->prepare("SELECT rol FROM usuario WHERE nombre = ?");
+
+		    $sentencia->bind_param("s", $nombre);
+
+		    $sentencia->execute();
+
+		    $resultado = $sentencia->get_result();
+
+		    $fila = $resultado->fetch_assoc();
+
+		    $rol = $fila["rol"];
+
+		    return $rol;
+		}
+
 		/*function obtenerObrasColeccion($coleccion){
             $sentencia = $this->conexion->prepare("SELECT id_obra FROM obrapertenececoleccion, coleccion WHERE obrapertenececoleccion.id_coleccion = coleccion.id AND coleccion.id = ?");
 
