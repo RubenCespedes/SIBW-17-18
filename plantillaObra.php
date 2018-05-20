@@ -4,13 +4,10 @@
 
 		}
 
-		function imprimirObra($id, $path, $autor, $biografia, $titulo, $datacion, $descripcion, $ids, $titulo_obras, $autores_comentarios, $fechas_comentarios, $horas_comentarios, $textos_comentarios, $nameErr, $emailErr, $textoErr, $palabras){
-
+		function imprimirObra($id, $path, $autor, $biografia, $titulo, $datacion, $descripcion, $ids, $titulo_obras, $autores_comentarios, $fechas_comentarios, $horas_comentarios, $textos_comentarios, $nameErr, $emailErr, $textoErr){
 			include 'head.php';
 			include 'header.php';
 			include 'footer.php';
-
-			$glue = "','";
 
 			imprimirHead();
 
@@ -47,16 +44,14 @@
 	                    <input type="email" id="correo" name="correo" placeholder="Introduce tu correo electronico..." required>
 
 	                    <label for="comment">Comentario</label><span class="error">* ' . $textoErr . '</span>
-	                    <textarea id="comentario" name="comentario" placeholder="Introduce tu comentario..." onkeyup="forbiddenWords()" required></textarea>
+	                    <textarea id="comentario" name="comentario" placeholder="Introduce tu comentario..." onchange="deteccion()" required></textarea>
 
 	                    <input type="submit" name="submit" value="Enviar">
 	                </form>
 	            </div>
 
 	        	<!-- IMAGEN DE LA OBRA -->
-	        	<div>
-	        		<img src="' . $path . '" alt="AQUI VA LA IMAGEN" style="max-width: 1060px;max-height: 560px;display: block;margin-left: auto;margin-right: auto;width: 50%;">
-	        	</div>
+	        	<img src="' . $path . '" alt="AQUI VA LA IMAGEN" width="95%" height="70%">
 
 	        	<!-- PIE DE LA IMAGEN DE LA OBRA -->
 	        	<div class="pie-obra">
@@ -80,10 +75,10 @@
 	        	<!-- BOTONES SOCIALES -->
 	        	<div class="botones-sociales">
 	        	    
-	                <a href="#" class="fa fa-facebook" id="FB" onclick="mostrarSocialMedia()"></a>
-	                <a href="#" class="fa fa-twitter" id="TWT" onclick="mostrarSocialMedia()"></a>
+	                <a href="#" class="fa fa-facebook" id="FB" onclick="mostrarSocialMedia(\'facebook\')"></a>
+	                <a href="#" class="fa fa-twitter" id="TWT" onclick="mostrarSocialMedia(\'twitter\')"></a>
 	                <a href="#" class="fa fa-google"></a>
-	                <a href="index.php?obra_imprimir=' . $id .'" class="hiperenlace-imprimir">
+	                <a class="hiperenlace-imprimir">
 	                    <i class="material-icons print">print</i>
 	                </a>
 	                
@@ -132,7 +127,7 @@
                         </div>
                     </div>
                 
-                </section><p id="demo"></p>
+                </section>
             </body>';
 
 		    imprimirFooter();

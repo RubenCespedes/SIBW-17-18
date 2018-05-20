@@ -347,55 +347,6 @@
             return $coleccion;
 		}
 
-		function obtenerPalabrasProhibidas(){
-			$sentencia = $this->conexion->prepare("SELECT texto FROM palabras");
-
-			$sentencia->execute();
-
-			$result = $sentencia->get_result();
-
-			$palabras = array();
-
-			while($fila = $result->fetch_assoc()){
-                array_push($palabras, $fila["texto"]);
-            }
-
-            $sentencia->close();
-
-            return $palabras;
-		}
-
-		function introducirUsuario($nombre, $correo){
-			// Preparamos y enlazamos
-			$sentencia = $this->conexion->prepare("INSERT INTO `usuario` (`id`, `nombre`, `correo`, `rol`) VALUES (NULL, ?, ?, 'usuario');");
-			$sentencia->bind_param("ss", $name, $email);
-
-			// Establecemos los parametros y ejecutamos
-			$name = $nombre;
-			$email = $correo;
-			$sentencia->execute();
-
-			echo "Nuevas filas introducidas correctamente";
-
-			$sentencia->close();
-		}
-
-		function obtenerRolUsuario($nombre){
-			$sentencia = $this->conexion->prepare("SELECT rol FROM usuario WHERE nombre = ?");
-
-		    $sentencia->bind_param("s", $nombre);
-
-		    $sentencia->execute();
-
-		    $resultado = $sentencia->get_result();
-
-		    $fila = $resultado->fetch_assoc();
-
-		    $rol = $fila["rol"];
-
-		    return $rol;
-		}
-
 		/*function obtenerObrasColeccion($coleccion){
             $sentencia = $this->conexion->prepare("SELECT id_obra FROM obrapertenececoleccion, coleccion WHERE obrapertenececoleccion.id_coleccion = coleccion.id AND coleccion.id = ?");
 

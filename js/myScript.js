@@ -1,3 +1,5 @@
+
+
 function mostrarSocialMedia() {
 // Get the modal
     var modal = document.getElementById("facebook");
@@ -28,7 +30,12 @@ function mostrarSocialMedia() {
     }
 }
 
-//var fwords = [ <?php echo implode("','",$imagenes);?> ]
+
+
+
+
+
+var prohibidas = ["hola", "adios", "tu", "yo", "nosotros"];
 
 function desplegarComentarios(){
 	document.getElementById("contenedor").style.display = "block";
@@ -38,52 +45,7 @@ function ocultarComentarios(){
 	document.getElementById("contenedor").style.display = "none";
 }
 
-function forbiddenWords(){
-    // Lista de palabras prohibidas
-    var fwords= ["hola", "adios", "tu", "yo", "nosotros"];
-
-    // Texto del comentario
-    var text = document.getElementById("comentario").value;
-
-    // Palabras por separado
-    var words = text.split(" ");
-
-    // Recorremos todas las palabras
-    for(j=0; j < words.length; j++){
-
-        // Por cada palabra comprobamos si contiene el patron (palabra prohibida)
-        for(i=0; i < fwords.length; i++){
-            var patt = new RegExp(fwords[i]);
-            var word = words[j];
-            var res = patt.test(word);
-
-            if(res == true){
-                switch(word.length){
-                    case 2:
-                        // Sustituimos por **
-                        words[j] = "**";
-                        break;
-                    case 4:
-                        // Sustituimos por ****
-                        words[j] = "****";
-                        break;
-                    case 5:
-                        // Sustituimos por *****
-                        words[j] = "*****";
-                        break;
-                    case 8:
-                        // Sustituimos por ********
-                        words[j] = "********";
-                        break;
-                }
-            }
-        }
-    }
-
-    var words = words.join(" ");
-
-    document.getElementById("comentario").value = words;
-    /*var img = [ <?php echo implode("','",$imagenes);?> ]
+function deteccion(){
 	var num_palabras = prohibidas.length;
 	var i;
 	var encontrado = -1;
@@ -105,7 +67,7 @@ function forbiddenWords(){
 		nuevo_texto = texto.replace(prohibidas[i-1],asteriscos);
 
 		document.getElementById("comentario").value = nuevo_texto;
-	}*/
+	}
 }
 
 function aniadir_comentario(){
