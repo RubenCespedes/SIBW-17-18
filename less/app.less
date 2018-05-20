@@ -2,35 +2,45 @@
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; } /* HTML5 display-role reset for older browsers */ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block; } body {line-height: 1; } ol, ul {list-style: none; } blockquote, q {quotes: none; } blockquote:before, blockquote:after, q:before, q:after {content: ''; content: none; } table {border-collapse: collapse; border-spacing: 0; }
 
 /*colores */
-@maincolour: #FC8702;
-@secondarycolour: #FDB25E;
-@basiccolour: #FFFFFF;
-@allusecolour: #FEDCB5;
-@black: #4C4848;
+@azulflojo: #9cb8d5; 
+@azulmedio: #7e9ab8;
+@azulnormal: #476484;
+@azuloscuro: #193145;
 
+/* COLORES TRADUCIDOS
 
+@azulflojo: #9cb8d5; rgb(156,184,213);
+@azulmedio: #7e9ab8; rgb(126,154,184);
+@azulnormal: #476484; rgb(71,100,132);
+@azuloscuro: #193145; rgb(25,49,69);
+
+ */
+
+inline {
+	display: inline-block;
+}
 
 body{
 	background-color: white;
 }
 /*fuentes*/
 @font-face {
-    font-family: 'mainfont';
-    src: url('../assets/fonts/Roboto-Black.ttf') format('truetype'),
+    font-family: 'Dosis-Light';
+    src: url('../assets/fonts/Dosis-Light.ttf') format('truetype'),
 }
 @font-face {
-    font-family: 'secondaryfont';
-    src: url('../assets/fonts/Roboto-Medium.ttf') format('truetype'),
+    font-family: 'palaquin-bold';
+    src: url('../assets/fonts/PalanquinDark-Bold.ttf') format('truetype'),
 }
 
 @font-face {
-	font-family: 'thirdfont';
-	src: url('../assets/fonts/Lato-Medium.ttf') format('truetype'),
+	font-family: 'ropa-sans';
+	src: url('../assets/fonts/RopaSans-Regular.ttf') format('truetype'),
 }
 
-@mainfont: 'mainfont';
-@secondaryfont: 'secondaryfont';
-@thirdfont: 'thirdfont';
+@dosis-light: 'Dosis-Light';
+@palaquin-bold: 'palaquin-bold';
+@ropa-sans: 'ropa-sans';
 
 
 
@@ -77,7 +87,7 @@ a{
 	position: relative;
 	width: 100%;
 	height: 1px;
-	background-color: @secondarycolour;
+	background-color: @azuloscuro;
 }
 
 .date-input{
@@ -90,7 +100,7 @@ a{
 	-o-transform: translateY(-50%);
 	transform: translateY(-50%);
 	height: 20px;
-	border: 1px solid @secondarycolour;
+	border: 1px solid @azulmedio;
 	border-radius: 20px;
 	box-sizing: border-box;
 	float: left;
@@ -103,10 +113,10 @@ a{
 .date-input::-webkit-datetime-edit-month-field,
 .date-input::-webkit-datetime-edit-day-field,
 .date-input::-webkit-datetime-edit-year-field{
-	color: @secondarycolour;
+	color: @azulmedio;
 }
 .date-input::-webkit-calendar-picker-indicator { 
-	color: @secondarycolour;
+	color: @azulmedio;
 }
 
 .date-room-input{
@@ -116,7 +126,7 @@ a{
 	margin-top: 20px;
 	height: 28px;
 	width: 120px;
-	border: 1px solid @allusecolour;
+	border: 1px solid @azuloscuro;
 	border-radius: 20px;
 	padding-left: 10px;
 }
@@ -126,21 +136,21 @@ a{
 .date-room-input::-webkit-datetime-edit-month-field,
 .date-room-input::-webkit-datetime-edit-day-field,
 .date-room-input::-webkit-datetime-edit-year-field{
-	color: @secondarycolour;
+	color: @azulmedio;
 }
 .date-room-input::-webkit-calendar-picker-indicator { 
-	color: @secondarycolour;
+	color: @azulmedio;
 }
 
 .page-content{
 	position: relative;
 	min-height: 40vh;
-	margin: 5% 0;
+	/*margin: 5% 0;*/
 	width: 100%;
-	margin-top: 120px;
+	/*margin-top: 120px;*/
 }
 .no-margin-top{
-	margin-top: 93px;
+	margin-top: 30px;
 }
 
 .icon{
@@ -166,8 +176,307 @@ a{
 	}
 }
 
+.slider{
+	position: relative;
+	.slider-container{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		.slide{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+		}
+		.active{
+			opacity: 1;
+		}
+	}
+	.slider-controller{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		.prev-button, .next-button{
+			position: absolute;
+			top: 50%;
+			-webkit-transform: translateY(-50%);
+			-moz-transform: translateY(-50%);
+			-ms-transform: translateY(-50%);
+			-o-transform: translateY(-50%);
+			transform: translateY(-50%);
+			width: 30px;
+			height: 30px;
+			cursor: pointer;
+			svg{
+				position: relative;
+				width: 100%;
+				height: 100%;
+				fill: @azulmedio;
+			}
+			svg:hover{
+				fill: white;
+			}
+		}
+		.prev-button{
+			left: 5%;
+		}
+		.next-button{
+			right: 5%;
+		}
+	}
+	.slider-content{
+		position: absolute;
+		bottom: 10%;
+		left: 8%;
+		width: 60%;
+		p{
+			position: relative;
+			font-size: 3.5rem;
+			color: white;
+			font-family: @dosis-light;
+		}
+	}
+}
 
+.form-slider{
+	position: relative;
+	width: 60%;
+	margin: 0 auto;
+	.bigger-height{
+		height: 200px !important;
+	}
+	.medium-height{
+		height: 150px !important;
+	}
+	.form-slider-container{
+		position: relative;
+		width: 100%;
+		height: 65px;
+		margin-bottom: 30px;
+		.form-slider-page{
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			display: none;
+			opacity: 0;
+			.row-form{
+				position: relative;
+				width: 100%;
+				margin-bottom: 15px;
+				overflow: hidden;
+				.label{
+					position: relative;
+					width: 38%;
+					margin-right: 2%;
+					float: left;
+					p{
+						text-align: right;
+						font-size: 1.2rem;
+						font-family: @dosis-light;
+						color: @azuloscuro;
+					}
+				}
+				.input{
+					position: relative;
+					width: 60%;
+					float: left;
+					.icons-container{
+						position: relative;
+						svg{
+							position: relative;
+							width: 30px;
+							height: 30px;
+							margin-right: 10px;
+							cursor: pointer;
+						}
+						svg:last-child{
+							margin-right: 0px;
+						}
+						svg:hover{
+							fill: red;
+						}
+					}
+					select{
+						position: relative;
+						height: 25px;
+						border: 1px solid @azuloscuro;
+						border-radius: 20px;
+						padding: 0 10px;
+						cursor: pointer;
+					}
+					select:hover{
+						outline: none;
+					}
+					.input-text{
+						position: relative;
+						width: 100%;
+						height: 25px;
+						border: 1px solid @azuloscuro;
+						border-radius: 20px;
+						padding: 0 10px;
+					}
+					.input-text-area{
+						position: relative;
+						resize: none;
+						width: 100%;
+						height: 60px;
+						border: 1px solid @azuloscuro;
+						border-radius: 20px;
+						padding: 10px;
+					}
+				}
+			}
+			.row-form:last-child{
+				margin-bottom: 0px;
+			}
+		}
+	}
+	.conditions-container{
+		position: relative;
+		width: 100%;
+		margin-bottom: 30px;
+		display: none;
+		.condition-container{
+			position: relative;
+			width: 100%;
+			margin-bottom: 10px;
+			overflow: hidden;
+			input{
+				position: relative;
+				width: 5%;
+				height: 20px;
+				border: 1px solid red;
+				border-radius: 20px;
+				box-sizing: border-box;
+				float: left;
+			}
+			p{
+				position: relative;
+				width: 94%;
+				float: left;
+				color: @azuloscuro;
+			}
+		}
+	}
+	.precio{
+		position: relative;
+		float: right;
+		margin: 20px 0;
+		font-size: 1.4rem;
+		line-height: 1.9rem;
+		color: @azuloscuro;
+		.smaller{
+			font-size: 1.2rem;
+			line-height: 1.7rem;
+			color: @azulflojo;
+		}
+	}
+	.buttons{
+		position: relative;
+		width: 100%;
+		overflow: hidden;
+		.prev-button{
+			position: relative;
+			border: 1px solid @azuloscuro;
+			border-radius: 20px;
+			box-sizing: border-box;
+			margin-right: 30px;
+			float: right;
+			padding: 5px;
+			display: none;
+			cursor: pointer;
+			p{
+				position: relative;
+				padding: 0 10px;
+			}
+		}
+		.next-button{
+			position: relative;
+			border: 1px solid @azuloscuro;
+			border-radius: 20px;
+			box-sizing: border-box;
+			float: right;
+			cursor: pointer;
+			padding: 5px;
+			p{
+				position: relative;
+				padding: 0 10px;
+			}
+		}
+		.cancel-button{
+			position: relative;
+			border: 1px solid @azuloscuro;
+			border-radius: 20px;
+			box-sizing: border-box;
+			margin-right: 30px;
+			padding: 5px;
+			float: right;
+			cursor: pointer;
+			p{
+				position: relative;
+				padding: 0 10px;
+			}
+		}
+		.confirm-button{
+			position: relative;
+			border: 1px solid @azuloscuro;
+			border-radius: 20px;
+			box-sizing: border-box;
+			float: right;
+			padding: 5px;
+			cursor: pointer;
+			p{
+				position: relative;
+				padding: 0 10px;
+			}
+		}
+	}
+}
 
+.go-to-valuations-button{
+	position: relative;
+	overflow: hidden;
+	margin: 0 auto;
+	width: 370px;
+	margin-top: 50px;
+	border: 1px solid #193145;
+	cursor: pointer;
+	border-radius: 20px;
+	.icon{
+		float: left;
+		position: relative;
+		margin-top: 10px;
+		margin-left: 10px;
+		padding-left: 15px;
+		padding-right: 5px;
+		padding-bottom: 10px;
+
+		height: 30px;
+		width: 30px;
+		cursor: pointer;
+		svg{
+			position: relative;
+			width: 100%;
+			height: 100%;
+		}
+	}
+	p{
+
+		float: left;
+		padding-left: 30px;
+		padding-top: 15px;
+		text-align: center;
+		position: relative;
+		font-size: 1rem;
+		font-family: @dosis-light;
+
+		color: #193145;
+	}
+}
 
 .title-page{
 	position: relative;
@@ -175,16 +484,16 @@ a{
 	p.subtitle{
 		text-align: center;
 		font-size: 2rem;
-		font-family: @thirdfont;
+		font-family: @ropa-sans;
 		line-height: 2.5rem;
 		color: #193145;
 	}
 	p{
 		text-align: center;
 		font-size: 2.5rem;
-		font-family: @thirdfont;
+		font-family: @ropa-sans;
 		line-height: 3rem;
-		color: @allusecolour;
+		color: @azuloscuro; 
 	}
 }
 
@@ -195,7 +504,7 @@ a{
 
 /* solo para footer y header */
 .medium-width{ 
-	width: 92%;
+	width: 45%;
 	margin-right: 4%;
 	margin-left: 4%;
 }
@@ -208,18 +517,308 @@ a{
 
 /*  Header  */
 header{
-	position: fixed;
+	/*position: fixed;
 	top: 0px;
-	left: 0px;
+	left: 0px;*/
 	z-index: 4;
 	background-color: white;
 	width: 100%;
-	border-bottom: 3px solid @maincolour;
+	border-bottom: 3px solid @azulflojo;
+
+	.formLogout {
+		display: inline-block;
+		border: none;
+		max-height: 0px;
+	}
+
+	.logoutbtn {
+		position: relative;
+    	bottom: 40px;
+    	width: auto;
+	}
+
+	.inline {
+		display: inline-block;
+	}
+
+	.user-container {
+		display: none;
+	    width: 15%;
+	    margin-left: 25%;
+	    font-family: @dosis-light;
+
+	    img {
+	    	width: 35%;
+	    	padding-bottom: 10px;
+	    }
+
+	    span {
+	    	position: relative;
+		    bottom: 45px;
+		    left: 15px;
+	    }
+	}
+
+	.signbtn {
+	    width: auto;
+	    position: absolute;
+	    top: 20px;
+	    right: 30px;
+	    font-size: 1.2em;
+	    border-radius: 5%;
+	    background-color: #7e9ab8;
+	    font-family: @dosis-light;
+	}
+
+	.modal2 {
+		display: none; /* Hidden by default */
+		position: fixed; /* Stay in place */
+		z-index: 1; /* Sit on top */
+		right: 0;
+		top: 0;
+		width: 40%; /* Full width */
+		/*height: 100%; /* Full height */
+		overflow: auto; /* Enable scroll if needed */
+		background-color: #474e5d;
+		/*padding-top: 50px;*/
+
+		h1 {
+			font-size: 2em;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+
+		* {box-sizing: border-box}
+		/* Full-width input fields */
+		  input[type=text], input[type=password] {
+		  width: 100%;
+		  padding: 15px;
+		  margin: 5px 0 22px 0;
+		  display: inline-block;
+		  border: none;
+		  background: #f1f1f1;
+		}
+
+		/* Add a background color when the inputs get focus */
+		input[type=text]:focus, input[type=password]:focus {
+		  background-color: #ddd;
+		  outline: none;
+		}
+
+		/* Extra styles for the cancel button */
+		.cancelbtn {
+		  padding: 14px 20px;
+		  background-color: #f44336;
+		}
+
+		/* Float cancel and signup buttons and add an equal width */
+		.cancelbtn, .signupbtn {
+		  float: left;
+		  width: 50%;
+		}
+
+		/* Add padding to container elements */
+		.container {
+		  padding: 16px;
+		}
+
+		/* Modal Content/Box */
+		.modal-content {
+		  background-color: #fefefe;
+		  margin: auto; /* 5% from the top, 15% from the bottom and centered */
+		  /*border: 1px solid #888;*/
+		  width: 100%; /* Could be more or less, depending on screen size */
+		}
+
+		/* Style the horizontal ruler */
+		hr {
+		  border: 1px solid #f1f1f1;
+		  margin-bottom: 25px;
+		}
+
+		/* The Close Button (x) */
+		.close {
+		  position: absolute;
+		  right: 35px;
+		  top: 15px;
+		  font-size: 40px;
+		  font-weight: bold;
+		  color: #000;
+		}
+
+		.close:hover,
+		.close:focus {
+		  color: #f44336;
+		  cursor: pointer;
+		}
+
+		/* Clear floats */
+		.clearfix::after {
+		  content: "";
+		  clear: both;
+		  display: table;
+		}
+
+		/* Change styles for cancel button and signup button on extra small screens */
+		@media screen and (max-width: 300px) {
+		  .cancelbtn, .signupbtn {
+		    width: 100%;
+		  }
+		}
+	}
+
+	/* For me */
+	.loginbtn {
+	    width: auto;
+	    position: absolute;
+	    top: 20px;
+	    right: 140px;
+	    font-size: 1.2em;
+	    border-radius: 5%;
+	    background-color: #7e9ab8;
+	    font-family: @dosis-light;
+	}
+
+	/* Bordered form */
+	form {
+	    border: 3px solid #f1f1f1;
+	    font-family: @dosis-light;
+	}
+
+	/* Full-width inputs */
+	input[type=text], input[type=password] {
+	    width: 100%;
+	    padding: 12px 20px;
+	    margin: 8px 0;
+	    display: inline-block;
+	    border: 1px solid #ccc;
+	    box-sizing: border-box;
+	    font-family: @dosis-light;
+	}
+
+	/* Set a style for all buttons */
+	button {
+	    background-color: #4CAF50;
+	    color: white;
+	    padding: 14px 20px;
+	    margin: 8px 0;
+	    border: none;
+	    cursor: pointer;
+	    width: 100%;
+	    font-family: @dosis-light;
+	    font-size: 1em;
+	}
+
+	/* Add a hover effect for buttons */
+	button:hover {
+	    opacity: 0.8;
+	}
+
+	/* Extra style for the cancel button (red) */
+	.cancelbtn {
+	    width: auto;
+	    padding: 10px 18px;
+	    background-color: #f44336;
+	}
+
+	/* Center the avatar image inside this container */
+	.imgcontainer {
+	    text-align: center;
+	    margin: 24px 0 12px 0;
+	}
+
+	/* Avatar image */
+	img.avatar {
+	    width: 15%;
+	    border-radius: 50%;
+	}
+
+	/* Add padding to containers */
+	.container {
+	    padding: 16px;
+	    font-family: @dosis-light;
+	}
+
+	/* The "Forgot password" text */
+	span.psw {
+	    float: right;
+	    padding-top: 16px;
+	}
+
+	/* Change styles for span and cancel button on extra small screens */
+	@media screen and (max-width: 300px) {
+	    span.psw {
+	        display: block;
+	        float: none;
+	    }
+	    .cancelbtn {
+	        width: 100%;
+	    }
+	}
+
+	
+	/* The Modal (background) */
+	.modal {
+	    display: none; /* Hidden by default */
+	    position: fixed; /* Stay in place */
+	    z-index: 1; /* Sit on top */
+	    right: 0;
+	    top: 0;
+	    width: 40%; /* Full width */
+	    /*height: 80%; /* Full height */
+	    overflow: auto; /* Enable scroll if needed */
+	    background-color: rgb(0,0,0); /* Fallback color */
+	    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	}
+
+	/* Modal Content/Box */
+	.modal-content {
+	    background-color: #fefefe;
+	    margin: auto; /* 15% from the top and centered */
+	    /*border: 1px solid #888;*/
+	    width: 99%; /* Could be more or less, depending on screen size */
+	}
+
+	/* The Close Button */
+	.close {
+	    /* Position it in the top right corner outside of the modal */
+	    position: absolute;
+	    right: 25px;
+	    top: 0; 
+	    color: #000;
+	    font-size: 35px;
+	    font-weight: bold;
+	}
+
+	/* Close button on hover */
+	.close:hover,
+	.close:focus {
+	    color: red;
+	    cursor: pointer;
+	}
+
+	/* Add Zoom Animation */
+	.animate {
+	    -webkit-animation: animatezoom 0.6s;
+	    animation: animatezoom 0.6s
+	}
+
+	@-webkit-keyframes animatezoom {
+	    from {-webkit-transform: scale(0)} 
+	    to {-webkit-transform: scale(1)}
+	}
+
+	@keyframes animatezoom {
+	    from {transform: scale(0)} 
+	    to {transform: scale(1)}
+	}
+
 	.header-wrapper{
 		position: relative;
 		overflow: hidden;
 		margin-top: 20px;
 		padding-bottom: 10px;
+		
 		a{
 			position: relative;
 			text-decoration: none;
@@ -244,13 +843,12 @@ header{
 			box-sizing: border-box;
 			float: left;
 			h1{
-				font-family: @mainfont;
+				font-family: @palaquin-bold;
 				font-size: 2rem;
 				text-decoration: none;
 				cursor: pointer;
-				color: @maincolour;
+				color: @azulmedio;
 				padding: 0 10px;
-
 			}
 		}
 		.links-container{
@@ -266,26 +864,30 @@ header{
 				-moz-transform: translateY(-50%);
 				-ms-transform: translateY(-50%);
 				-o-transform: translateY(-50%);
-				transform: translateY(-50%);
+				transform: translateY(-50%);		
 				overflow: hidden;
-				-webkit-font-smoothing: antialiased;
-				-moz-osx-font-smoothing: grayscale;
 				li{
 					float: left;
 					text-decoration: none;
 					a{
-						font-family: @mainfont;
+						font-family: @dosis-light;
 						text-decoration: none;
 						cursor: pointer;
-						color: @secondarycolour;
+						color: @azulmedio;
 						padding: 0 10px;
 					}
 					a:hover{
-						color: @allusecolour;
+						color: @azuloscuro;
 					}
 				}
 			}
 		}
+
+	}
+}
+
+section {
+	.modal {
 
 	}
 }
@@ -300,17 +902,16 @@ header{
 		overflow: hidden;
 		float: left;
 		margin-top: 30px;
-		font-family: secondaryfont;
-		color: @black;
+		margin-bottom: 30px;
 	}
 	.categorias{
 		position: relative;
-		padding-top: 5%;
+		padding-top: 3%;
 		.title{
 			position: relative;
 			font-size: 2rem;
-			font-family: secondaryfont;
-			color: @maincolour;
+			font-family: @ropa-sans;
+			color: @azuloscuro;
 			margin-bottom: 30px;
 		}
 		.categorias-cards-container{
@@ -341,8 +942,7 @@ header{
 							position: absolute;
 							top: 50%;
 							left: 50%;
-							color: @basiccolour;
-							font-family: thirdfont;
+							color: @azuloscuro;
 							-webkit-transform: translateY(-50%) translateX(-50%);
 							-moz-transform: translateY(-50%) translateX(-50%);
 							-ms-transform: translateY(-50%) translateX(-50%);
@@ -354,16 +954,16 @@ header{
 				.title{
 					position: relative;
 					font-size: 1.5rem;
-					font-family: @secondaryfont;
-					color: @secondarycolour;
+					font-family: @ropa-sans;
+					color: @azuloscuro;
 					margin: 15px 0;
 					padding-right: 5%;
 				}
 				.description{
 					position: relative;
 					font-size: 1.2rem;
-					font-family: @thirdfont;
-					color: @allusecolour;
+					font-family: @dosis-light;
+					color: @azuloscuro;
 					margin-bottom: 15px;
 					padding-right: 5%;
 				}
@@ -375,15 +975,15 @@ header{
 						width: 73px;
 						float: left;
 						cursor: pointer;
-						border: 1px solid @allusecolour;
+						border: 1px solid @azuloscuro;
 						border-radius: 20px; 
 						p{
 							position: relative;
 
 							padding: 0px 10px;
 							font-size: 1rem;
-							font-family: @thirdfont;
-							color: @allusecolour;
+							font-family: @dosis-light;
+							color: @azuloscuro;
 						}
 					}				
 				}
@@ -401,7 +1001,7 @@ header{
 			margin: 0 auto;
 			width: 230px;
 			margin-top: 50px;
-			border: 1px solid @allusecolour;
+			border: 1px solid @azuloscuro;
 			border-radius: 20px;
 			p{
 				position: relative;
@@ -410,343 +1010,29 @@ header{
 				padding-top: 5px;
 				padding-bottom: 5px;
 				font-size: 1rem;
-				font-family: @thirdfont;
-				color: @allusecolour;
+				font-family: @dosis-light;
+				color: @azuloscuro;
 			}
 		}
 }
-
-
-.obras-page{
-	.menu{
-		position: relative;
-		width: 13%;
-		overflow: hidden;
-		float: left;
-		margin-top: 30px;
-		font-family: secondaryfont;
-		color: @black;
-	}
-	.categorias{
-		position: relative;
-		padding-top: 5%;
-		.title{
-			position: relative;
-			font-size: 2rem;
-			font-family: secondaryfont;
-			color: @maincolour;
-			margin-bottom: 30px;
-		}
-		.categorias-cards-container{
-			position: relative;
-			width: 75%;
-			overflow: hidden;
-			.offer-card-container{
-
-				border-bottom: 3px solid @secondarycolour;
-
-				display: flex;
-				flex-direction: row;
-				align-items: center;
-				justify-content: center;
-				margin-bottom: 80px;
-
-
-				.photo-container{
-					flex: 1 0 0;
-
-					background-position: center;
-					background-size: cover;
-					background-repeat: no-repeat;
-					padding-bottom: 10%;
-
-
-					.discount{
-						top: 0px;
-						right: 0px;
-						width: 40px;
-						height: 40px;
-						background-color: rgba(255,255,255,0.5);
-						padding: 5px;
-						p{
-
-							margin: 20px;
-							font-size: 2rem;
-							float: left;
-							color: @basiccolour;
-							-webkit-transform: translateY(-50%) translateX(-50%);
-							-moz-transform: translateY(-50%) translateX(-50%);
-							-ms-transform: translateY(-50%) translateX(-50%);
-							-o-transform: translateY(-50%) translateX(-50%);
-							transform: translateY(-50%) translateX(-50%);
-						}
-					}
-				}
-				.info-container{
-					flex: 2 0 0;
-					margin-left: 20px;
-					.title{
-
-						a{
-							font-size: 1.5rem;
-							font-family: @secondaryfont;
-							color: @black;
-							text-decoration: none;
-						}
-						a:hover{
-							color: @maincolour;
-						}
-
-						.enviar-mensaje{
-							position: relative;
-							padding: 5px 10px;
-							float: left;
-							cursor: pointer;
-							border: 1px solid #7e9ab8;
-							border-radius: 20px;
-							background-color: @maincolour;
-							a{
-								text-decoration: none;
-								font-size: 1.4rem;
-								font-family: @secondaryfont;
-								color: @basiccolour;
-								margin-left: 10%;
-							}
-						}
-
-
-					}
-				}
-				.description{
-					position: relative;
-					font-size: 1.2rem;
-					font-family: @thirdfont;
-					color: @basiccolour;
-					margin-bottom: 15px;
-					padding-right: 5%;
-				}
-				a{
-					overflow: hidden;
-					.price-button{
-						position: relative;
-						padding: 5px;
-						width: 73px;
-						float: left;
-						cursor: pointer;
-						border: 1px solid @maincolour;
-						border-radius: 20px;
-						p{
-							position: relative;
-
-							padding: 0px 10px;
-							font-size: 1rem;
-							font-family: @secondaryfont;
-							color: @secondarycolour;
-						}
-					}
-				}
-			}
-			.offer-card-container:nth-child(3n){
-				margin-right: 0px;
-			}
-		}
-
-	}
-	.go-to-valuations-button{
-		position: relative;
-		overflow: hidden;
-		cursor: pointer;
-		margin: 0 auto;
-		width: 230px;
-		margin-top: 50px;
-		border: 1px solid @maincolour;
-		border-radius: 20px;
-		p{
-			position: relative;
-			float: left;
-			padding-left: 50px;
-			padding-top: 5px;
-			padding-bottom: 5px;
-			font-size: 1rem;
-			font-family: @secondaryfont;
-			color: @secondarycolour;
-		}
-	}
-}
-
-
-.lista_comentarios-page{
-	.menu{
-		position: relative;
-		width: 13%;
-		overflow: hidden;
-		float: left;
-		margin-top: 30px;
-		font-family: secondaryfont;
-		color: @black;
-	}
-	.general{
-		position: relative;
-		padding-top: 5%;
-		.title{
-			position: relative;
-			font-size: 2rem;
-			font-family: secondaryfont;
-			color: @maincolour;
-			margin-bottom: 30px;
-		}
-		.general-comments-container{
-			position: relative;
-			width: 75%;
-			overflow: hidden;
-			.comment-container-flex{
-				display: flex;
-				flex-direction: row;
-				align-items: center;
-				justify-content: center;
-				margin-bottom: 80px;
-				.child1 {
-					flex: 1 0 0;
-				}
-				.child2 {
-					flex: 2 0 0;
-
-
-					.title{
-						font-size: 1.5rem;
-						font-family: @mainfont;
-						color: @secondarycolour;
-						text-decoration: none;
-					}
-					.normal{
-						font-size: 1rem;
-						font-family: @secondaryfont;
-						color: @secondarycolour;
-						text-decoration: none;
-						margin-bottom: 10px;
-					}
-					.comment{
-						font-size: 1rem;
-						font-family: @thirdfont;
-						color: @black;
-						text-decoration: none;
-
-					}
-					.comment:hover{
-						color: @maincolour;
-					}
-				}
-
-			}
-		}
-	}
-}
-
-
-/* About us */
-.aboutus-page{
-	.top-photo{
-		position: relative;
-		height: 25vw;
-		background-position: center;
-		background-size: cover;
-		background-repeat: no-repeat;
-	}
-	.wellcome-container{
-		position: relative;
-		margin-top: 5%;
-		margin-bottom: 4%;
-		.title{
-			position: relative;
-			margin-bottom: 30px;
-			font-size: 2rem;
-			font-family: @secondaryfont;
-			color: @maincolour;
-		}
-		.description{
-			position: relative;
-			margin-bottom: 20px;
-			font-size: 1.2rem;
-			font-family: @thirdfont;
-			color: @black;
-		}
-		.description:last-child{
-			margin-bottom: 0px;
-		}
-	}
-	.enviar-mensaje{
-		margin-bottom: 20px;
-		position: relative;
-		padding: 5px 10px;
-		float: left;
-		cursor: pointer;
-		margin-left: 8%;
-		border: 1px solid #7e9ab8;
-		border-radius: 20px;
-		background-color: @maincolour;
-		a{
-			text-decoration: none;
-			font-size: 1.4rem;
-			font-family: @secondaryfont;
-			color: @basiccolour;
-		}
-	}
-
-	.enviar-mensaje:hover{
-		box-shadow: 0 1px 6px @secondarycolour;
-		background-color: @secondarycolour;
-	}
-	.direction-container{
-		position: relative;
-		margin-top: 60px;
-		clear: both;
-		/*margin-bottom: 5%;*/
-		.title{
-			position: relative;
-			margin-bottom: 30px;
-			font-size: 2rem;
-			font-family: @secondaryfont;
-			color: @maincolour;
-			text-align: center;
-		}
-		.direction{
-			position: relative;
-			margin: 0 auto;
-			font-size: 1.2rem;
-			font-family: @thirdfont;
-			color: @black;
-			margin-bottom: 20px;
-			.bigger-txt{
-				font-size: 1.4rem;
-				font-family: @secondaryfont;
-				color: @black;
-			}
-		}
-		.map-container{
-			position: relative;
-			width: 100%;
-			height: 25vw;
-			iframe{
-				position: relative;
-				width: 100%;
-				height: 100%;
-			}
-		}
-	}
-}
-
-
 
 /*  Footer   */
 footer{
 	position: relative;
 	width: 100%;
-	border-top: 3px solid @secondarycolour;
+	border-top: 3px solid @azulmedio;
 	display: inline-block;
+
+	.all-width {
+		width: 92%;
+		margin-right: 4%;
+    	margin-left: 4%;
+	}
+
 	.footer-wrapper{
 		position: relative;
-		margin-top: 60px;
-		margin-bottom: 30px;
+		margin-top: 40px;
+		margin-bottom: 20px;
 		overflow: hidden;
 		.contact-container{
 			position: relative;
@@ -757,19 +1043,18 @@ footer{
 				position: relative;
 				text-transform: uppercase;
 				font-size: 1.1rem;
-				font-family: @mainfont;
+				font-family: @ropa-sans;
 				margin-bottom: 15px;
-				color: @maincolour;
+				color: @azuloscuro;
 			}
 			.address, .telephone, .email{
 				position: relative;
 				font-size: 1rem;
-				font-family: @thirdfont;
-				color: @black;
+				font-family: @dosis-light;
+				color: @azulnormal;
 				line-height: 1.5rem;
 				span:hover{
-					cursor: pointer;
-					color: @maincolour;
+					color: @azuloscuro;
 				}
 			}
 			a{
@@ -779,7 +1064,15 @@ footer{
 
 				}
 			}
-
+			.address{
+				cursor: pointer;
+			}
+			.address:hover{
+				color: @azuloscuro;
+			}
+			.email span:hover{
+				color: @azuloscuro;
+			}
 		}
 		.time-container{
 			position: relative;
@@ -789,21 +1082,17 @@ footer{
 				position: relative;
 				text-transform: uppercase;
 				font-size: 1.1rem;
-				font-family: @mainfont;
-				color: @maincolour;
+				font-family: @ropa-sans;
+				color: @azuloscuro;
 				margin-bottom: 15px;
 			}
 			.time, .hour{
 				overflow: hidden;
 				margin-bottom: 10px;
-				p:hover{
-					cursor: pointer;
-					color: @maincolour;
-				}
 				p{
 					font-size: 1rem;
-					font-family: @thirdfont;
-					color: @black;
+					font-family: @dosis-light;
+					color: @azulnormal;
 					float: left;
 					margin-top: 7px;
 					margin-left: 10px;
@@ -851,8 +1140,8 @@ footer{
 				p{
 					position: relative;
 					font-size: 0.8rem;
-					font-family: @secondaryfont;
-					color: @black;
+					font-family: @dosis-light;
+					color: @azulnormal;
 				}
 			}
 
@@ -902,13 +1191,30 @@ footer{
 	padding-bottom: 1%;
 	margin-top: 1%;
 	width: 70%;
+
+	form {
+		input[type="submit"]{
+			background-color: #9cb8d5;
+		    border: none;
+		    color: white;
+		    padding: 2% 4%!important;
+		    text-align: center;
+		    text-decoration: none;
+		    display: inline-block;
+		    border-radius: 10px;
+		    transition-duration: 0.4s;
+		    cursor: pointer;
+		    font-family: Dosis-Light;
+		    font-size: 1.3em;
+		}
+	}
 }
 
 /* CONTENEDOR DEL PIE DE LA IMAGEN DE LA OBRA */
 .pie-obra {
 	margin-top: 0.5%;
 	margin-left: 1%;
-	font-family: thirdfont;
+	font-family: palaquin-bold;
 }
 
 /* CONTENEDOR DEL AUTOR DE LA OBRA */
@@ -942,13 +1248,13 @@ footer{
 /* FORMATO PARA EL TITULO DE LA OBRA */
 .titulo-obra {
 	font-size:  2em;
-    font-family: thirdfont;
+    font-family: Dosis-Light;
 }
 
 /* FORMATO PARA LA DATACION DE LA OBRA */
 .datacion-obra {
 	margin-top: 1%;
-   	font-family: thirdfont;
+   	font-family: palaquin-bold;
 }
 
 /* FORMATO PARA EL TEXTO QUE DESCRIBE UNA OBRA */
@@ -978,13 +1284,17 @@ footer{
     text-decoration: none;
     margin: 1%;
     margin-right: 0%;
+	a{
+		color: inherit;
+	}
 }
 
 .print {
 	font-size: 1em !important; /* SOBRESCRIBE EL font-size QUE TRAEN LOS ICONOS, QUITA LOS 24px */
+	a{
+		color: inherit;
+	}
 }
-
-
 
 /* CONTENEDOR PARA LOS ENLACES EXTERNOS */
 .enlaces-externos {
@@ -995,7 +1305,7 @@ footer{
 }
 
 .titulo-destacado {
-	font-family:  thirdfont;
+	font-family:  ropa-sans;
 }
 
 /* FORMATO PARA LA LISTA DE ENLACES EXTERNOS DE UNA OBRA */
@@ -1034,7 +1344,7 @@ footer{
     	border: solid #9cb8d5;
     	border-radius: 5px;
     	padding: 20px;
-    	font-family: thirdfont;
+    	font-family: Dosis-Light;
     }
 
     textarea {
@@ -1047,7 +1357,7 @@ footer{
 	    border-radius: 4px;
 	    -webkit-box-sizing: border-box;
 	    box-sizing: border-box;
-	    font-family: thirdfont;
+	    font-family: Dosis-Light;
     }
 
     input[type=text] {
@@ -1058,7 +1368,7 @@ footer{
 	    border: 1px solid #ccc;
 	    border-radius: 4px;
 	    box-sizing: border-box;
-	    font-family: thirdfont;
+	    font-family: Dosis-Light;
 	}
 
 	input[type=email] {
@@ -1069,7 +1379,7 @@ footer{
 	    border: 1px solid #ccc;
 	    border-radius: 4px;
 	    box-sizing: border-box;
-    	font-family: thirdfont;
+    	font-family: Dosis-Light;
 	}
 
 	input[type=reset] {
@@ -1093,7 +1403,7 @@ footer{
 	border: solid #9cb8d5;
 	border-radius: 10px;
 	padding: 1% 1% 0% 1%;
-	font-family: thirdfont;
+	font-family: Dosis-Light;
 	margin-bottom: 2%;
 
 	.superior {
@@ -1146,7 +1456,7 @@ footer{
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
     cursor: pointer;
-    font-family: thirdfont;
+    font-family: Dosis-Light;
     font-size: 1.3em;
 }
 
@@ -1186,14 +1496,14 @@ footer{
 
 .titulo-imprimir {
 	font-size:  2em;
-                font-family: thirdfont;
+                font-family: Dosis-Light;
                 width: 70%;
                 display:  inline-block;
 }
 
 .datacion-imprimir {
 	margin-top: 1%;
-                font-family: thirdfont;
+                font-family: palaquin-bold;
                 width:  70%;
                 display:  inline-block;
 }

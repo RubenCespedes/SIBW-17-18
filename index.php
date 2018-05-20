@@ -1,3 +1,7 @@
+<?php
+	session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -35,14 +39,10 @@
 
 		$modelo->desconectar();
 
-		//include 'plantillaMainPage.php';
-
-		include 'plantillaListaObras.php';
+		include 'plantillaMainPage.php';
 
 		$vista = new Vista();
-		//$vista->imprimirIndex($ids, $paths, $titulos, $autores, $ids);
-        $vista->imprimirListaObras($ids, $paths, $titulos, $autores, $ids);
-
+		$vista->imprimirIndex($ids, $paths, $titulos, $autores, $ids);
 	} else {
 		if(!empty($_GET["obra"])){
 
@@ -82,6 +82,8 @@
 				array_push($horas_comentarios, $model->obtenerHoraComentario($comentarios[$x]));
 				array_push($textos_comentarios, $model->obtenerTextoComentario($comentarios[$x]));
 			}
+
+			$palabras = $model->obtenerPalabrasProhibidas();
 	
 			$model->desconectar();
 
@@ -96,7 +98,7 @@
 			include 'plantillaObra.php';
 
 			$vista = new Vista();
-			$vista->imprimirObra($id, $path, $autor, $biografia, $titulo, $datacion, $descripcion, $ids, $titulo_obras, $autores_comentarios, $fechas_comentarios, $horas_comentarios, $textos_comentarios, $nameErr, $emailErr, $textoErr);
+			$vista->imprimirObra($id, $path, $autor, $biografia, $titulo, $datacion, $descripcion, $ids, $titulo_obras, $autores_comentarios, $fechas_comentarios, $horas_comentarios, $textos_comentarios, $palabras);
 		} else if(!empty($_GET["obra_imprimir"])){
 
 

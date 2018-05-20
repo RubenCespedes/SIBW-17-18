@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$_SESSION["rol"] = $rol;
 	$_SESSION["usuario"] = $name;
 
-	header("Location: index.php");
+	header("Location: " . $_POST['uri']);
    	exit;
 }
 

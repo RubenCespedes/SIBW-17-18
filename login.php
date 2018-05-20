@@ -5,6 +5,7 @@ session_start();
 // define variables and set to empty values
 $name = "";
 $rol = "";
+$email = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$name = test_input($_POST["uname"]);
@@ -15,6 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$modelo->conectar();
 
 	$rol = $modelo->obtenerRolUsuario($name);
+	$email = $modelo->obtenerCorreoUsuario($name);
 	$modelo->desconectar();
 
 	if(empty($rol)){
@@ -24,12 +26,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		// Establecemos en una variable de sesion el rol del usuario
 		$_SESSION["rol"] = $rol;
 		$_SESSION["usuario"] = $name;
+		$_SESSION["correo"] = $email;
 		//print_r($_SESSION);
 		//echo "Id de la sesion: " . session_id();
 		//echo "Nombre de la sesion: " . session_name();
 		// "Estado de la sesion: " . session_status();
 		
-		header("Location: index.php");
+		header("Location: " . $_POST['uri']);
    		exit;
 	}
 }

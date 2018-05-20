@@ -347,6 +347,119 @@
             return $coleccion;
 		}
 
+		function obtenerPalabrasProhibidas(){
+			$sentencia = $this->conexion->prepare("SELECT texto FROM palabras");
+
+			$sentencia->execute();
+
+			$result = $sentencia->get_result();
+
+			$palabras = array();
+
+			while($fila = $result->fetch_assoc()){
+                array_push($palabras, $fila["texto"]);
+            }
+
+            $sentencia->close();
+
+            return $palabras;
+		}
+
+		function introducirUsuario($nombre, $correo){
+			// Preparamos y enlazamos
+			$sentencia = $this->conexion->prepare("INSERT INTO `usuario` (`id`, `nombre`, `correo`, `rol`) VALUES (NULL, ?, ?, 'usuario');");
+			$sentencia->bind_param("ss", $name, $email);
+
+			// Establecemos los parametros y ejecutamos
+			$name = $nombre;
+			$email = $correo;
+			$sentencia->execute();
+
+			//echo "Nuevas filas introducidas correctamente";
+
+			$sentencia->close();
+		}
+
+		function obtenerRolUsuario($nombre){
+			$sentencia = $this->conexion->prepare("SELECT rol FROM usuario WHERE nombre = ?");
+
+		    $sentencia->bind_param("s", $nombre);
+
+		    $sentencia->execute();
+
+		    $resultado = $sentencia->get_result();
+
+		    $fila = $resultado->fetch_assoc();
+
+		    $rol = $fila["rol"];
+
+		    return $rol;
+		}
+
+		function obtenerCorreoUsuario($nombre){
+			$sentencia = $this->conexion->prepare("SELECT correo FROM usuario WHERE nombre=?");
+
+		    $sentencia->bind_param("s", $nombre);
+
+		    $sentencia->execute();
+
+		    $resultado = $sentencia->get_result();
+
+		    $fila = $resultado->fetch_assoc();
+
+		    $correo = $fila["correo"];
+
+		    return $correo;
+		}
+
+		function introducirComentario($nombre, $fecha, $hora, $comentario){
+			// Preparamos y enlazamos
+			$sentencia = $this->conexion->prepare("INSERT INTO `comentario` (`id`, `autor`, `fecha`, `hora`, `texto`) VALUES (NULL, ?, ?, ?, ?);");
+			$sentencia->bind_param("ssss", $name, $date, $hour, $comment);
+
+			// Establecemos los parametros y ejecutamos
+			$name = $nombre;
+			$date = $fecha;
+			$hour = $hora;
+			$comment = $comentario;
+			$sentencia->execute();
+
+			//echo "Nuevas filas introducidas correctamente";
+
+			$sentencia->close();
+		}
+
+		function obtenerUltimoComentario(){
+			$sentencia = $this->conexion->prepare("SELECT MAX(id) FROM comentario");
+
+			$sentencia->execute();
+
+			$id = NULL;
+
+			$sentencia->bind_result($id);
+
+			$sentencia->fetch();
+
+			$sentencia->close();
+
+			return $id;
+		}
+
+		function enlazarComentarioObra($id_comentario, $id_obra){
+			// Preparamos y enlazamos
+			$sentencia = $this->conexion->prepare("INSERT INTO `obratienecomentarios` (`id_comentario`, `id_obra`) VALUES (?, ?);");
+			$sentencia->bind_param("ss", $id_comment, $id_artwork);
+
+			// Establecemos los parametros y ejecutamos
+			$id_comment = $id_comentario;
+			$id_artwork = $id_obra;
+			$sentencia->execute();
+
+			//echo "Nuevas filas introducidas correctamente";
+
+			$sentencia->close();
+		}
+
 		/*function obtenerObrasColeccion($coleccion){
             $sentencia = $this->conexion->prepare("SELECT id_obra FROM obrapertenececoleccion, coleccion WHERE obrapertenececoleccion.id_coleccion = coleccion.id AND coleccion.id = ?");
 

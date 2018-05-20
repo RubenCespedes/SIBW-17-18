@@ -1,7 +1,7 @@
 <?php
 	function imprimirFooter(){
 		echo '<footer>
-			<div class="footer-wrapper medium-width">
+			<div class="footer-wrapper all-width">
 				<div class="contact-container">
 					<p class="title no-select">CONTACTO</p>
 					<a href="https://www.google.es/maps/"><p class="address no-select">C/ Plaza Flores,8. España, Almeria</p></a>

@@ -4,10 +4,13 @@
 
 		}
 
-		function imprimirObra($id, $path, $autor, $biografia, $titulo, $datacion, $descripcion, $ids, $titulo_obras, $autores_comentarios, $fechas_comentarios, $horas_comentarios, $textos_comentarios, $nameErr, $emailErr, $textoErr){
+		function imprimirObra($id, $path, $autor, $biografia, $titulo, $datacion, $descripcion, $ids, $titulo_obras, $autores_comentarios, $fechas_comentarios, $horas_comentarios, $textos_comentarios, $palabras){
+
 			include 'head.php';
 			include 'header.php';
 			include 'footer.php';
+
+			$glue = "','";
 
 			imprimirHead();
 
@@ -15,7 +18,7 @@
 
 			imprimirHeader();
 
-			echo '<section class="index-page page-content no-margin-top">
+			echo '<section class="index-page page-content ">
 
 	        <aside class="menu small-width">
 	            <p>Sidebar de prueba. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Mendrerit id, lorem. Maecenas nec odio e sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,Sidebar de prueba. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. </p>
@@ -33,25 +36,33 @@
 	                	$this->imprimirComentario($autores_comentarios[$x], $fechas_comentarios[$x], $horas_comentarios[$x], $textos_comentarios[$x]);
 	                }
 	                
-	                echo '<form method="post" class="form" action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '?obra=' . $id . '">
-	                    <label for="fname">Nombre</label><span class="error">* ' . $nameErr . '</span>
+	                echo '<form class="form" action="addComment.php" method="post">
+	                    <label for="fname">Nombre</label><span class="error">* 
 	                    <input type="text" id="nombre" name="nombre" placeholder="Introduce tu nombre..." required>
 
-	                    <label for="lname">Apellidos</label><span class="error">* ' . $nameErr . '</span>
+	                    <label for="lname">Apellidos</label><span class="error">*
 	                    <input type="text" id="apellidos" name="apellidos" placeholder="Introduce tu/s apellido/s..." required>
 
-	                    <label for="mail">Correo electronico</label><span class="error">* ' . $emailErr . '</span>
+	                    <label for="mail">Correo electronico</label><span class="error">*
 	                    <input type="email" id="correo" name="correo" placeholder="Introduce tu correo electronico..." required>
 
-	                    <label for="comment">Comentario</label><span class="error">* ' . $textoErr . '</span>
-	                    <textarea id="comentario" name="comentario" placeholder="Introduce tu comentario..." onchange="deteccion()" required></textarea>
+	                    <label for="comment">Comentario</label><span class="error">*
+	                    <textarea id="comentario" name="comentario" placeholder="Introduce tu comentario..." onkeyup="forbiddenWords()" required></textarea>
 
-	                    <input type="submit" name="submit" value="Enviar">
+	                    <input type="text" name="id_obra" style="display: none;" value="' . $id . '">
+
+	                    <input type="submit" name="submit" value="Enviar" ';
+
+	                    if(!isset($_SESSION['usuario']))
+	                    	echo "disabled style='background-color: grey; cursor: default'";
+	                    echo '>
 	                </form>
 	            </div>
 
 	        	<!-- IMAGEN DE LA OBRA -->
-	        	<img src="' . $path . '" alt="AQUI VA LA IMAGEN" width="95%" height="70%">
+	        	<div>
+	        		<img src="' . $path . '" alt="AQUI VA LA IMAGEN" style="max-width: 1060px;max-height: 560px;display: block;margin-left: auto;margin-right: auto;width: 50%;">
+	        	</div>
 
 	        	<!-- PIE DE LA IMAGEN DE LA OBRA -->
 	        	<div class="pie-obra">
@@ -75,10 +86,10 @@
 	        	<!-- BOTONES SOCIALES -->
 	        	<div class="botones-sociales">
 	        	    
-	                <a href="#" class="fa fa-facebook" id="FB" onclick="mostrarSocialMedia(\'facebook\')"></a>
-	                <a href="#" class="fa fa-twitter" id="TWT" onclick="mostrarSocialMedia(\'twitter\')"></a>
+	                <a href="#" class="fa fa-facebook" id="FB" onclick="mostrarSocialMedia()"></a>
+	                <a href="#" class="fa fa-twitter" id="TWT" onclick="mostrarSocialMedia()"></a>
 	                <a href="#" class="fa fa-google"></a>
-	                <a class="hiperenlace-imprimir">
+	                <a href="index.php?obra_imprimir=' . $id .'" class="hiperenlace-imprimir">
 	                    <i class="material-icons print">print</i>
 	                </a>
 	                
@@ -100,35 +111,13 @@
 	                		$this->imprimirEnlaceExterno($ids[$x], $titulo_obras[$x]);
 	                	}
 
-					echo '</ul>
-                        </div>
+				echo '</ul>
+                </div>
         
-                    </div>
-                    
-                    <div id="facebook" class="modal">
-        
-                        <!-- Modal content -->
-                        <div class="modal-content">
-                            <span class="close">&times;</span>
-                            <p>Se publicará en Facebook el siguiente mensaje:</p>
-                            <p>' . $titulo .' vía @ModernMuseum.</p>
-                            <img src="' . $path .'">
-                        </div>
-                    </div>
-                    
-                    <div id="twitter" class="modal">
-        
-                        <!-- Modal content -->
-                        <div class="modal-content">
-                            <span class="close">&times;</span>
-                            <p>Se publicará en Twitter el siguiente mensaje:</p>
-                            <p>' . $titulo .' vía @ModernMuseum.</p>
-                            <img src="' . $path .'">
-                        </div>
-                    </div>
+            </div>
                 
-                </section>
-            </body>';
+        </section><p id="demo"></p>
+    </body>';
 
 		    imprimirFooter();
 		}
