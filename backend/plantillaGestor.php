@@ -165,18 +165,18 @@ class Vista {
 			   	        	<input type="text" name="id" style="display: none;" value="' . $fila["id"] . '"></input>
 			   	        	<input type="text" name="uri" style="display: none;" value="' . $_SERVER["REQUEST_URI"] . '"></input>
 			   	        	<input type="text" name="accion" style="display: none;" value="add"></input>
-			   	        	<button type="submit"><span><img src="./assets/image/add-big.png"><span></button>
+			   	        	<button type="submit"><span><img src="./assets/image/add-big.png" style="cursor:pointer;"><span></button>
 		   	        	</form>
 	                    <form class="form-comment" action="' . $_SERVER["PHP_SELF"] . '" method="POST">
 			   	        	<input type="text" name="id" style="display: none;" value="' . $fila["id"] . '"></input>
 			   	        	<input type="text" name="uri" style="display: none;" value="' . $_SERVER["REQUEST_URI"] . '"></input>
 			   	        	<input type="text" name="accion" style="display: none;" value="edit"></input>
-			   	        	<button type="submit"><span><img src="./assets/image/edit-big.png"><span></button>
+			   	        	<button type="submit"><span><img src="./assets/image/edit-big.png" style="cursor:pointer;"><span></button>
 		   	        	</form>
 		   	        	<form class="form-comment" action="./backend/deleteObra.php" method="POST">
 			   	        	<input type="text" name="id" style="display: none;" value="' . $fila["id"] . '"></input>
 			   	        	<input type="text" name="uri" style="display: none;" value="' . $_SERVER["REQUEST_URI"] . '"></input>
-			   	        	<button type="submit"><span><img src="./assets/image/delete-big.png"><span></button>
+			   	        	<button type="submit"><span><img src="./assets/image/delete-big.png" style="cursor:pointer;"><span></button>
 		   	        	</form>
 	                </div>
                 </div>
