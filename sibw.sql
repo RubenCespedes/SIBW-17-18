@@ -2,10 +2,10 @@
 -- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 23-04-2018 a las 12:56:45
--- Versión del servidor: 10.1.31-MariaDB
--- Versión de PHP: 7.2.3
+-- Host: 127.0.0.1
+-- Generation Time: May 21, 2018 at 06:44 AM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `sibw`
+-- Database: `sibw`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `autor`
+-- Table structure for table `autor`
 --
 
 CREATE TABLE `autor` (
@@ -34,7 +34,7 @@ CREATE TABLE `autor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `autor`
+-- Dumping data for table `autor`
 --
 
 INSERT INTO `autor` (`nombre`, `biografia`) VALUES
@@ -47,7 +47,7 @@ INSERT INTO `autor` (`nombre`, `biografia`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `autortieneobras`
+-- Table structure for table `autortieneobras`
 --
 
 CREATE TABLE `autortieneobras` (
@@ -56,7 +56,7 @@ CREATE TABLE `autortieneobras` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `autortieneobras`
+-- Dumping data for table `autortieneobras`
 --
 
 INSERT INTO `autortieneobras` (`id_obra`, `nombre_autor`) VALUES
@@ -77,7 +77,7 @@ INSERT INTO `autortieneobras` (`id_obra`, `nombre_autor`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `coleccion`
+-- Table structure for table `coleccion`
 --
 
 CREATE TABLE `coleccion` (
@@ -86,7 +86,7 @@ CREATE TABLE `coleccion` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `coleccion`
+-- Dumping data for table `coleccion`
 --
 
 INSERT INTO `coleccion` (`id`, `nombre`) VALUES
@@ -98,7 +98,7 @@ INSERT INTO `coleccion` (`id`, `nombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `comentario`
+-- Table structure for table `comentario`
 --
 
 CREATE TABLE `comentario` (
@@ -110,7 +110,7 @@ CREATE TABLE `comentario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `comentario`
+-- Dumping data for table `comentario`
 --
 
 INSERT INTO `comentario` (`id`, `autor`, `fecha`, `hora`, `texto`) VALUES
@@ -139,12 +139,13 @@ INSERT INTO `comentario` (`id`, `autor`, `fecha`, `hora`, `texto`) VALUES
 (23, 'Irene Contreras', '2018-04-17', '02:21:00', '¡La desintegración de la persistencia de la memoria es mi obra favorita!'),
 (24, 'Irene Contreras', '2018-04-17', '02:21:00', '¡La noche estrellada se hizo durante el día!'),
 (25, 'Irene Contreras', '2018-04-17', '02:22:00', '¡La Casa Amarilla lo mismo no era amarilla!'),
-(26, 'Manolo Rivas Maldonado', '2018-04-22', '01:48:00', '¡La Gioconda tiene una sonrisa misteriosa!');
+(26, 'Manolo Rivas Maldonado', '2018-04-22', '01:48:00', '¡La Gioconda tiene una sonrisa misteriosa!'),
+(33, 'Ruben Cespedes', '2018-05-21', '03:03:00', 'asdfghj');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `imagen`
+-- Table structure for table `imagen`
 --
 
 CREATE TABLE `imagen` (
@@ -153,51 +154,50 @@ CREATE TABLE `imagen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `imagen`
+-- Dumping data for table `imagen`
 --
 
 INSERT INTO `imagen` (`id`, `path`) VALUES
-(1, '/images/la_gioconda_1.png'),
-(2, '/images/la_gioconda_2.png'),
-(3, '/images/la_gioconda_3.png'),
-(4, '/images/la_ultima_cena_1.png'),
-(5, '/images/la_ultima_cena_2.png'),
-(6, '/images/hombre_de_vitruvio_1.png'),
-(7, '/images/hombre_de_vitruvio_2.png'),
-(8, '/images/hombre_de_vitruvio_3.png'),
-(9, '/images/guernica_1.png'),
-(10, '/images/guernica_2.png'),
-(11, '/images/guernica_3.png'),
-(12, '/images/las_señoritas_de_avignon_1.png'),
-(13, '/images/las_señoritas_de_avignon_2.png'),
-(14, '/images/las_señoritas_de_avignon_3.png'),
-(15, '/images/la_persistencia_de_la_memoria_1.png'),
-(16, '/images/la_persistencia_de_la_memoria_2.png'),
-(17, '/images/la_persistencia_de_la_memoria_3.png'),
-(18, '/images/el_gran_masturbador_1.png'),
-(19, '/images/el_gran_masturbador_2.png'),
-(20, '/images/el_gran_masturbador_3.png'),
-(21, '/images/la_cara_de_la_guerra_1.png'),
-(22, '/images/la_cara_de_la_guerra_2.png'),
-(23, '/images/la_cara_de_la_guerra_3.png'),
-(24, '/images/el_torero_alucinogeno_1.png'),
-(25, '/images/el_torero_alucinogeno_2.png'),
-(26, '/images/el_torero_alucinogeno_3.png'),
-(27, '/images/la_desintegracion_de_la_persistencia_de_la_memoria_1.png'),
-(28, '/images/la_desintegracion_de_la_persistencia_de_la_memoria_2.png'),
-(29, '/images/la_desintegracion_de_la_persistencia_de_la_memoria_3.png'),
-(30, '/images/la_noche_estrellada_1.png'),
-(31, '/images/la_noche_estrellada_2.png'),
-(32, '/images/la_noche_estrellada_3.png'),
-(33, '/images/la_casa_amarilla_1.png'),
-(34, '/images/la_casa_amarilla_2.png'),
-(35, '/images/el_grito_1.png'),
-(36, '/images/el_grito_2.png');
+(2, './images/la_gioconda_2.jpg'),
+(3, './images/la_gioconda_3.jpg'),
+(4, './images/la_ultima_cena_1.jpg'),
+(5, './images/la_ultima_cena_2.jpg'),
+(6, './images/hombre_de_vitruvio_1.jpg'),
+(7, './images/hombre_de_vitruvio_2.jpg'),
+(8, './images/hombre_de_vitruvio_3.jpg'),
+(9, './images/guernica_1.jpg'),
+(10, './images/guernica_2.jpg'),
+(11, './images/guernica_3.jpg'),
+(12, './images/las_señoritas_de_avignon_1.jpg'),
+(13, './images/las_señoritas_de_avignon_2.jpg'),
+(14, './images/las_señoritas_de_avignon_3.jpg'),
+(15, './images/la_persistencia_de_la_memoria_1.jpg'),
+(16, './images/la_persistencia_de_la_memoria_2.jpg'),
+(17, './images/la_persistencia_de_la_memoria_3.jpg'),
+(18, './images/el_gran_masturbador_1.jpg'),
+(19, './images/el_gran_masturbador_2.jpg'),
+(20, './images/el_gran_masturbador_3.jpg'),
+(21, './images/la_cara_de_la_guerra_1.jpg'),
+(22, './images/la_cara_de_la_guerra_2.jpg'),
+(23, './images/la_cara_de_la_guerra_3.jpg'),
+(24, './images/el_torero_alucinogeno_1.jpg'),
+(25, './images/el_torero_alucinogeno_2.jpg'),
+(26, './images/el_torero_alucinogeno_3.jpg'),
+(27, './images/la_desintegracion_de_la_persistencia_de_la_memoria_1.jpg'),
+(28, './images/la_desintegracion_de_la_persistencia_de_la_memoria_2.jpg'),
+(29, './images/la_desintegracion_de_la_persistencia_de_la_memoria_3.jpg'),
+(30, './images/la_noche_estrellada_1.jpg'),
+(31, './images/la_noche_estrellada_2.jpg'),
+(32, './images/la_noche_estrellada_3.jpg'),
+(33, './images/la_casa_amarilla_1.jpg'),
+(34, './images/la_casa_amarilla_2.jpg'),
+(35, './images/el_grito_1.jpg'),
+(36, './images/el_grito_2.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `obra`
+-- Table structure for table `obra`
 --
 
 CREATE TABLE `obra` (
@@ -209,11 +209,11 @@ CREATE TABLE `obra` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `obra`
+-- Dumping data for table `obra`
 --
 
 INSERT INTO `obra` (`id`, `titulo`, `autor`, `datacion`, `descripcion`) VALUES
-(1, 'La Gioconda', 'Leonardo da Vinci', 1503, 'El Retrato de Lisa Gherardini, esposa de Francesco del Giocondo,​ más conocido como La Gioconda (La Joconde en francés), o Mona Lisa, es una obra pictórica del pintor renacentista italiano Leonardo da Vinci. Fue adquirida por el rey Francisco I de Francia a principios del siglo XVI y desde entonces es propiedad del Estado Francés. Se exhibe en el Museo del Louvre de París.\r\n\r\nSu nombre, La Gioconda (la alegre, en castellano), deriva de la tesis más aceptada acerca de la identidad de la modelo: la esposa de Francesco Bartolomeo de Giocondo, que realmente se llamaba Lisa Gherardini, de donde viene su otro nombre: Mona (señora, en el italiano antiguo) Lisa. El Museo del Louvre acepta el título completo indicado al principio como el título original de la obra, aunque no reconoce la identidad de la modelo y tan solo la acepta como una hipótesis.'),
+(1, 'La Gioconda', 'Leonardo da Vinci', 1503, 'El Retrato de Lisa Gherardini, esposa de Francesco del Giocondo,​ más conocido como La Gioconda (La Joconde en francés), o Mona Lisa, es una obra pictórica del pintor renacentista italiano Leonardo da Vinci. Fue adquirida por el rey Francisco I de Francia a principios del siglo XVI y desde entonces es propiedad del Estado Francés. Se exhibe en el Museo del Louvre de París.Su nombre, La Gioconda (la alegre, en castellano), deriva de la tesis más aceptada acerca de la identidad de la modelo: la esposa de Francesco Bartolomeo de Giocondo, que realmente se llamaba Lisa Gherardini, de donde viene su otro nombre: Mona (señora, en el italiano antiguo) Lisa. El Museo del Louvre acepta el título completo indicado al principio como el título original de la obra, aunque no reconoce la identidad de la modelo y tan solo la acepta como una hipótesis.'),
 (2, 'La última cena', 'Leonardo da Vinci', 1495, 'La última cena (en italiano: Il cenacolo o L’ultima cena) es una pintura mural original de Leonardo da Vinci ejecutada entre 1495 y 1497. Se encuentra en la pared sobre la que se pintó originariamente, en el refectorio del convento dominico de Santa Maria delle Grazie, en Milán (Italia), declarado Patrimonio de la Humanidad por la Unesco en 1980. La pintura fue elaborada para su patrón, el duque Ludovico Sforza de Milán. No es un fresco tradicional, sino un mural ejecutado al temple y óleo sobre dos capas de preparación de yeso extendidas sobre enlucido. Mide 460 cm de alto por 880 cm de ancho. Muchos expertos e historiadores del arte consideran La última cena como una de las mejores obras pictóricas del mundo.'),
 (3, 'Hombre de Vitruvio', 'Leonardo da Vinci', 1490, 'El Hombre de Vitruvio o Estudio de las proporciones ideales del cuerpo humano es un famoso dibujo acompañado de notas anatómicas de Leonardo da Vinci realizado alrededor del año 1490 en uno de sus diarios. Representa una figura masculina desnuda en dos posiciones sobreimpresas de brazos y piernas e inscrita en una circunferencia y un cuadrado (\'Ad quadratum\'). Se trata de un estudio de las proporciones del cuerpo humano, realizado a partir de los textos de arquitectura de Vitruvio, arquitecto de la antigua Roma, del cual el dibujo toma su nombre.\r\n\r\nPerteneció a la colección del escritor y pintor Giuseppe Bossi hasta que, tras su muerte acaecida en 1815, su colección fue comprada en una subasta por Luigi Celotti y posteriormente adquirida por la Galería de la Academia de Venecia, donde se conserva desde 1822, aunque se exhibe al público rara vez por motivos de conservación. Por esta razón no es parte de la exposición habitual del museo.'),
 (4, 'Guernica', 'Pablo Picasso', 1937, 'Guernica es un famoso cuadro de Pablo Picasso, pintado entre los meses de mayo y junio de 1937, cuyo título alude al bombardeo de Guernica, ocurrido el 26 de abril de dicho año (1937), durante la guerra civil española. Fue realizado por encargo del Director General de Bellas Artes, Josep Renau a petición del Gobierno de la Segunda República Española para ser expuesto en el pabellón español durante la Exposición Internacional de 1937 en París, con el fin de atraer la atención del público hacia la causa republicana en plena guerra civil española.'),
@@ -230,7 +230,7 @@ INSERT INTO `obra` (`id`, `titulo`, `autor`, `datacion`, `descripcion`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `obrapertenececoleccion`
+-- Table structure for table `obrapertenececoleccion`
 --
 
 CREATE TABLE `obrapertenececoleccion` (
@@ -239,7 +239,7 @@ CREATE TABLE `obrapertenececoleccion` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `obrapertenececoleccion`
+-- Dumping data for table `obrapertenececoleccion`
 --
 
 INSERT INTO `obrapertenececoleccion` (`id_obra`, `id_coleccion`) VALUES
@@ -257,7 +257,7 @@ INSERT INTO `obrapertenececoleccion` (`id_obra`, `id_coleccion`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `obratienecomentarios`
+-- Table structure for table `obratienecomentarios`
 --
 
 CREATE TABLE `obratienecomentarios` (
@@ -266,7 +266,7 @@ CREATE TABLE `obratienecomentarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `obratienecomentarios`
+-- Dumping data for table `obratienecomentarios`
 --
 
 INSERT INTO `obratienecomentarios` (`id_comentario`, `id_obra`) VALUES
@@ -300,7 +300,7 @@ INSERT INTO `obratienecomentarios` (`id_comentario`, `id_obra`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `obratieneimagenes`
+-- Table structure for table `obratieneimagenes`
 --
 
 CREATE TABLE `obratieneimagenes` (
@@ -309,11 +309,10 @@ CREATE TABLE `obratieneimagenes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `obratieneimagenes`
+-- Dumping data for table `obratieneimagenes`
 --
 
 INSERT INTO `obratieneimagenes` (`id_imagenes`, `id_obra`) VALUES
-(1, 1),
 (2, 1),
 (3, 1),
 (4, 2),
@@ -353,30 +352,55 @@ INSERT INTO `obratieneimagenes` (`id_imagenes`, `id_obra`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuario`
+-- Table structure for table `palabras`
+--
+
+CREATE TABLE `palabras` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `texto` char(255) COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Dumping data for table `palabras`
+--
+
+INSERT INTO `palabras` (`id`, `texto`) VALUES
+(1, 'hola'),
+(2, 'adios'),
+(3, 'tu'),
+(4, 'yo'),
+(5, 'nosotros');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `usuario`
 --
 
 CREATE TABLE `usuario` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `nombre` char(255) COLLATE utf8_spanish_ci NOT NULL,
-  `correo` char(255) COLLATE utf8_spanish_ci NOT NULL
+  `correo` char(255) COLLATE utf8_spanish_ci NOT NULL,
+  `rol` enum('usuario','moderador','gestor','superusuario') COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `usuario`
+-- Dumping data for table `usuario`
 --
 
-INSERT INTO `usuario` (`id`, `nombre`, `correo`) VALUES
-(1, 'Manolo Rivas Maldonado', 'manolo_rivas@gmail.com'),
-(2, 'Juan Martinez', 'juan_martinez@gmail.com'),
-(3, 'Andrea Fernandez', 'andrea_fernandez@gmail.com'),
-(4, 'Marta Guirado', 'marta_guirado@gmail.com'),
-(5, 'Irene Contreras', 'irene_contreras@gmail.com');
+INSERT INTO `usuario` (`id`, `nombre`, `correo`, `rol`) VALUES
+(1, 'Manolo Rivas Maldonado', 'manolo_rivas@gmail.com', 'usuario'),
+(2, 'Juan Martinez', 'juan_martinez@gmail.com', 'usuario'),
+(3, 'Andrea Fernandez', 'andrea_fernandez@gmail.com', 'usuario'),
+(4, 'Marta Guirado', 'marta_guirado@gmail.com', 'usuario'),
+(5, 'Irene Contreras', 'irene_contreras@gmail.com', 'usuario'),
+(6, 'moderator', 'moderator@gmail.com', 'moderador'),
+(7, 'Ruben Cespedes', 'rubenn569@gmail.com', 'gestor');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuariorealizadocomentarios`
+-- Table structure for table `usuariorealizadocomentarios`
 --
 
 CREATE TABLE `usuariorealizadocomentarios` (
@@ -385,7 +409,7 @@ CREATE TABLE `usuariorealizadocomentarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `usuariorealizadocomentarios`
+-- Dumping data for table `usuariorealizadocomentarios`
 --
 
 INSERT INTO `usuariorealizadocomentarios` (`id_comentario`, `id_usuario`) VALUES
@@ -416,144 +440,157 @@ INSERT INTO `usuariorealizadocomentarios` (`id_comentario`, `id_usuario`) VALUES
 (25, 5);
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `autor`
+-- Indexes for table `autor`
 --
 ALTER TABLE `autor`
   ADD PRIMARY KEY (`nombre`);
 
 --
--- Indices de la tabla `autortieneobras`
+-- Indexes for table `autortieneobras`
 --
 ALTER TABLE `autortieneobras`
   ADD PRIMARY KEY (`id_obra`);
 
 --
--- Indices de la tabla `coleccion`
+-- Indexes for table `coleccion`
 --
 ALTER TABLE `coleccion`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id` (`id`);
 
 --
--- Indices de la tabla `comentario`
+-- Indexes for table `comentario`
 --
 ALTER TABLE `comentario`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id` (`id`);
 
 --
--- Indices de la tabla `imagen`
+-- Indexes for table `imagen`
 --
 ALTER TABLE `imagen`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id` (`id`);
 
 --
--- Indices de la tabla `obra`
+-- Indexes for table `obra`
 --
 ALTER TABLE `obra`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id` (`id`);
 
 --
--- Indices de la tabla `obrapertenececoleccion`
+-- Indexes for table `obrapertenececoleccion`
 --
 ALTER TABLE `obrapertenececoleccion`
   ADD PRIMARY KEY (`id_obra`);
 
 --
--- Indices de la tabla `obratienecomentarios`
+-- Indexes for table `obratienecomentarios`
 --
 ALTER TABLE `obratienecomentarios`
   ADD PRIMARY KEY (`id_comentario`);
 
 --
--- Indices de la tabla `obratieneimagenes`
+-- Indexes for table `obratieneimagenes`
 --
 ALTER TABLE `obratieneimagenes`
   ADD PRIMARY KEY (`id_imagenes`);
 
 --
--- Indices de la tabla `usuario`
+-- Indexes for table `palabras`
+--
+ALTER TABLE `palabras`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id` (`id`);
+
+--
+-- Indexes for table `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id` (`id`);
 
 --
--- Indices de la tabla `usuariorealizadocomentarios`
+-- Indexes for table `usuariorealizadocomentarios`
 --
 ALTER TABLE `usuariorealizadocomentarios`
   ADD PRIMARY KEY (`id_comentario`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `coleccion`
+-- AUTO_INCREMENT for table `coleccion`
 --
 ALTER TABLE `coleccion`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT de la tabla `comentario`
+-- AUTO_INCREMENT for table `comentario`
 --
 ALTER TABLE `comentario`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
--- AUTO_INCREMENT de la tabla `imagen`
+-- AUTO_INCREMENT for table `imagen`
 --
 ALTER TABLE `imagen`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
--- AUTO_INCREMENT de la tabla `obra`
+-- AUTO_INCREMENT for table `obra`
 --
 ALTER TABLE `obra`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT de la tabla `usuario`
+-- AUTO_INCREMENT for table `palabras`
 --
-ALTER TABLE `usuario`
+ALTER TABLE `palabras`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- Restricciones para tablas volcadas
+-- AUTO_INCREMENT for table `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `autortieneobras`
+-- Constraints for table `autortieneobras`
 --
 ALTER TABLE `autortieneobras`
   ADD CONSTRAINT `autortieneobras_ibfk_1` FOREIGN KEY (`id_obra`) REFERENCES `obra` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `obrapertenececoleccion`
+-- Constraints for table `obrapertenececoleccion`
 --
 ALTER TABLE `obrapertenececoleccion`
   ADD CONSTRAINT `obrapertenececoleccion_ibfk_1` FOREIGN KEY (`id_obra`) REFERENCES `obra` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `obratienecomentarios`
+-- Constraints for table `obratienecomentarios`
 --
 ALTER TABLE `obratienecomentarios`
   ADD CONSTRAINT `obratienecomentarios_ibfk_1` FOREIGN KEY (`id_comentario`) REFERENCES `comentario` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `obratieneimagenes`
+-- Constraints for table `obratieneimagenes`
 --
 ALTER TABLE `obratieneimagenes`
   ADD CONSTRAINT `obratieneimagenes_ibfk_1` FOREIGN KEY (`id_imagenes`) REFERENCES `imagen` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `usuariorealizadocomentarios`
+-- Constraints for table `usuariorealizadocomentarios`
 --
 ALTER TABLE `usuariorealizadocomentarios`
   ADD CONSTRAINT `usuariorealizadocomentarios_ibfk_1` FOREIGN KEY (`id_comentario`) REFERENCES `comentario` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
