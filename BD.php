@@ -507,6 +507,42 @@
 			return $comentarios;
 		}
 
+		function obtenerObras(){
+			$sentencia = $this->conexion->prepare("SELECT * FROM `obra`");
+
+			$sentencia->execute();
+
+			$result = $sentencia->get_result();
+
+			$obras = array();
+
+			while($fila = $result->fetch_assoc()){
+				array_push($obras, $fila);
+			}
+
+			return $obras;
+		}
+
+		function obtenerImagenesObra($id_obra){
+
+			$sentencia = $this->conexion->prepare("SELECT * FROM imagen, obratieneimagenes, obra WHERE obra.id = ? AND obratieneimagenes.id_obra = obra.id AND obratieneimagenes.id_imagenes = imagen.id");
+
+			$sentencia->bind_param("i", $id_obra);
+
+			$sentencia->execute();
+
+			$result = $sentencia->get_result();
+			
+			$imagenes = array();
+
+			while($fila = $result->fetch_assoc())
+				array_push($imagenes, $fila);
+			
+			$sentencia->close();
+
+			return $imagenes;
+		}
+
 		function obtenerDatosComentario($id){
 			$sentencia = $this->conexion->prepare("SELECT * FROM `comentario` WHERE id=?");
 
@@ -523,8 +559,44 @@
 			return $comentario;
 		}
 
+		function obtenerDatosObra($id){
+			$sentencia = $this->conexion->prepare("SELECT * FROM `obra` WHERE id=?");
+
+			$sentencia->bind_param("s", $identificator);
+
+			$identificator = $id;
+
+			$sentencia->execute();
+
+			$result = $sentencia->get_result();
+
+			$obra = $result->fetch_assoc();
+
+			return $obra;
+		}
+
 		function borrarComentario($id){
 			$sql = "DELETE FROM comentario WHERE id=" . $id;
+
+			if ($this->conexion->query($sql) === TRUE) {
+			    echo "Record deleted successfully";
+			} else {
+			    echo "Error deleting record: " . $conn->error;
+			}
+		}
+
+		function borrarObra($id){
+			$sql = "DELETE FROM obra WHERE id=" . $id;
+
+			if ($this->conexion->query($sql) === TRUE) {
+			    echo "Record deleted successfully";
+			} else {
+			    echo "Error deleting record: " . $conn->error;
+			}
+		}
+
+		function borrarImagen($id){
+			$sql = "DELETE FROM imagen WHERE id=" . $id;
 
 			if ($this->conexion->query($sql) === TRUE) {
 			    echo "Record deleted successfully";
@@ -547,6 +619,42 @@
 			$identificator = $id;
 
 			$sentencia->execute();
+
+			$sentencia->close();
+		}
+
+		function actualizarObra($id, $titulo, $autor, $datacion, $descripcion){
+			// Preparamos y enlazamos
+			$sentencia = $this->conexion->prepare("UPDATE `obra` SET `titulo` = ?, `autor` = ?, `datacion` = ?, `descripcion` = ? WHERE `obra`.`id` = ?");
+
+			$sentencia->bind_param("sssss", $title, $author, $dating, $description, $identificator);
+
+			// Establecemos los parametros y ejecutamos
+			$title = $titulo;
+			$author = $autor;
+			$dating = $datacion;
+			$description = $descripcion;
+			$identificator = $id;
+
+			$sentencia->execute();
+
+			$sentencia->close();
+		}
+
+		function introducirObra($title, $author, $dating, $description){
+			// Preparamos y enlazamos
+			$sentencia = $this->conexion->prepare("INSERT INTO `obra` (`id`, `titulo`, `autor`, `datacion`, `descripcion`) VALUES (NULL, ?, ?, ?, ?)");
+			$sentencia->bind_param("ssss", $titulo, $autor, $datacion, $descripcion);
+
+			// Establecemos los parametros y ejecutamos
+			$titulo = $title;
+			$autor = $author;
+			$datacion = $dating;
+			$descripcion = $description;
+			
+			$sentencia->execute();
+
+			//echo "Nuevas filas introducidas correctamente";
 
 			$sentencia->close();
 		}

@@ -19,15 +19,17 @@
 	        </div>
 
 	        <div id='user-container' class=\"user-container\">
-			    <img src=\"img_avatar.png\" alt=\"Avatar\">
-			    <span>";
-			    if(isset($_SESSION["usuario"])){
-			    	echo $_SESSION["usuario"];
-			    }
-			   	else {
-			    	echo "";
-			    }
-			echo "</span>
+			    <a href='controladorBackend.php'>
+			    	<img src=\"img_avatar.png\" alt=\"Avatar\">
+			    	<span>";
+			    	if(isset($_SESSION["usuario"])){
+			    		echo $_SESSION["usuario"];
+			    	}
+			   		else {
+				    	echo "";
+			    	}
+					echo "</span>
+				</a>
 			</div>
 
 			<!-- Button to logout session -->

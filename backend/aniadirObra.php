@@ -1,31 +1,30 @@
 <?php
 	session_start();
 
+	$titulo = "";
 	$autor = "";
-	$fecha = "";
-	$hora = "";
-	$texto = "";
+	$datacion = "";
+	$descripcion = "";
 
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		# code...
+		$titulo = test_input($_POST["titulo"]);
 		$autor = test_input($_POST["autor"]);
-		$fecha = test_input($_POST["fecha"]);
-		$hora = test_input($_POST["hora"]);
-		$texto = test_input($_POST["text"]);
+		$datacion = test_input($_POST["datacion"]);
+		$descripcion = test_input($_POST["descripcion"]);
 
 		include '../BD.php';
 
 		$modelo = new Model();
 		$modelo->conectar();
 
-		// Al texto modificado se le debe aniadir que ha sido editado
-		$texto = $texto . " (Mensaje editado por el moderador)";
+		echo $titulo . " " . $autor . " " . $datacion . " " . $descripcion;
 
-		$modelo->actualizarComentario($_POST["id"], $autor, $fecha, $hora, $texto);
+		$modelo->introducirObra($titulo, $autor, $datacion, $descripcion);
 
 		$modelo->desconectar();
 
-		$_SESSION['changeComment'] = "";
+		$_SESSION['aniadirObra'] = "";
 
 		header("Location: " . $_POST['uri']);
    		exit;
