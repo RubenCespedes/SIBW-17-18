@@ -1,0 +1,567 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; } /* HTML5 display-role reset for older browsers */ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block; } body {line-height: 1; } ol, ul {list-style: none; } blockquote, q {quotes: none; } blockquote:before, blockquote:after, q:before, q:after {content: ''; content: none; } table {border-collapse: collapse; border-spacing: 0; }
+
+/*colores */
+@azulflojo: #9cb8d5; 
+@azulmedio: #7e9ab8;
+@azulnormal: #476484;
+@azuloscuro: #193145;
+@maincolour: #FC8702;
+@secondarycolour: #FDB25E;
+@basiccolour: #FFFFFF;
+@allusecolour: #FEDCB5;
+@black: #4C4848;
+
+/*fuentes*/
+@font-face {
+    font-family: 'Dosis-Light';
+    src: url('../assets/fonts/Dosis-Light.ttf') format('truetype'),
+}
+@font-face {
+    font-family: 'palaquin-bold';
+    src: url('../assets/fonts/PalanquinDark-Bold.ttf') format('truetype'),
+}
+
+@font-face {
+	font-family: 'ropa-sans';
+	src: url('../assets/fonts/RopaSans-Regular.ttf') format('truetype'),
+}
+
+@dosis-light: 'Dosis-Light';
+@palaquin-bold: 'palaquin-bold';
+@ropa-sans: 'ropa-sans';
+@mainfont: 'mainfont';
+@secondaryfont: 'secondaryfont';
+@thirdfont: 'thirdfont';
+
+/*  Header  */
+header{
+	margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+	z-index: 4;
+	background-color: white;
+	width: 100%;
+	border-bottom: 3px solid @azulflojo;
+
+	.medium-width {
+		width: 45%;
+	    margin-right: 4%;
+	    margin-left: 4%;
+	}
+
+	.formLogout {
+		display: inline-block;
+		border: none;
+		max-height: 0px;
+	}
+
+	.logoutbtn {
+		position: relative;
+    	bottom: 40px;
+    	width: auto;
+	}
+
+	.inline {
+		display: inline-block;
+	}
+
+	.user-container {
+		display: inline-block;
+	    width: 15%;
+	    margin-left: 25%;
+	    font-family: @dosis-light;
+
+	    img {
+	    	width: 35%;
+	    	padding-bottom: 10px;
+	    }
+
+	    span {
+	    	position: relative;
+		    bottom: 45px;
+		    left: 15px;
+	    }
+	}
+
+	.signbtn {
+	    width: auto;
+	    position: absolute;
+	    top: 20px;
+	    right: 30px;
+	    font-size: 1.2em;
+	    border-radius: 5%;
+	    background-color: #7e9ab8;
+	    font-family: @dosis-light;
+	}
+
+	.modal2 {
+		display: none; /* Hidden by default */
+		position: fixed; /* Stay in place */
+		z-index: 1; /* Sit on top */
+		right: 0;
+		top: 0;
+		width: 40%; /* Full width */
+		/*height: 100%; /* Full height */
+		overflow: auto; /* Enable scroll if needed */
+		background-color: #474e5d;
+		/*padding-top: 50px;*/
+
+		h1 {
+			font-size: 2em;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+
+		* {box-sizing: border-box}
+		/* Full-width input fields */
+		  input[type=text], input[type=password] {
+		  width: 100%;
+		  padding: 15px;
+		  margin: 5px 0 22px 0;
+		  display: inline-block;
+		  border: none;
+		  background: #f1f1f1;
+		}
+
+		/* Add a background color when the inputs get focus */
+		input[type=text]:focus, input[type=password]:focus {
+		  background-color: #ddd;
+		  outline: none;
+		}
+
+		/* Extra styles for the cancel button */
+		.cancelbtn {
+		  padding: 14px 20px;
+		  background-color: #f44336;
+		}
+
+		/* Float cancel and signup buttons and add an equal width */
+		.cancelbtn, .signupbtn {
+		  float: left;
+		  width: 50%;
+		}
+
+		/* Add padding to container elements */
+		.container {
+		  padding: 16px;
+		}
+
+		/* Modal Content/Box */
+		.modal-content {
+		  background-color: #fefefe;
+		  margin: auto; /* 5% from the top, 15% from the bottom and centered */
+		  /*border: 1px solid #888;*/
+		  width: 100%; /* Could be more or less, depending on screen size */
+		}
+
+		/* Style the horizontal ruler */
+		hr {
+		  border: 1px solid #f1f1f1;
+		  margin-bottom: 25px;
+		}
+
+		/* The Close Button (x) */
+		.close {
+		  position: absolute;
+		  right: 35px;
+		  top: 15px;
+		  font-size: 40px;
+		  font-weight: bold;
+		  color: #000;
+		}
+
+		.close:hover,
+		.close:focus {
+		  color: #f44336;
+		  cursor: pointer;
+		}
+
+		/* Clear floats */
+		.clearfix::after {
+		  content: "";
+		  clear: both;
+		  display: table;
+		}
+
+		/* Change styles for cancel button and signup button on extra small screens */
+		@media screen and (max-width: 300px) {
+		  .cancelbtn, .signupbtn {
+		    width: 100%;
+		  }
+		}
+	}
+
+	/* For me */
+	.loginbtn {
+	    width: auto;
+	    position: absolute;
+	    top: 20px;
+	    right: 140px;
+	    font-size: 1.2em;
+	    border-radius: 5%;
+	    background-color: #7e9ab8;
+	    font-family: @dosis-light;
+	}
+
+	/* Bordered form */
+	form {
+	    border: 3px solid #f1f1f1;
+	    font-family: @dosis-light;
+	}
+
+	/* Full-width inputs */
+	input[type=text], input[type=password] {
+	    width: 100%;
+	    padding: 12px 20px;
+	    margin: 8px 0;
+	    display: inline-block;
+	    border: 1px solid #ccc;
+	    box-sizing: border-box;
+	    font-family: @dosis-light;
+	}
+
+	/* Set a style for all buttons */
+	button {
+	    background-color: #4CAF50;
+	    color: white;
+	    padding: 14px 20px;
+	    margin: 8px 0;
+	    border: none;
+	    cursor: pointer;
+	    width: 100%;
+	    font-family: @dosis-light;
+	    font-size: 1em;
+	}
+
+	/* Add a hover effect for buttons */
+	button:hover {
+	    opacity: 0.8;
+	}
+
+	/* Extra style for the cancel button (red) */
+	.cancelbtn {
+	    width: auto;
+	    padding: 10px 18px;
+	    background-color: #f44336;
+	}
+
+	/* Center the avatar image inside this container */
+	.imgcontainer {
+	    text-align: center;
+	    margin: 24px 0 12px 0;
+	}
+
+	/* Avatar image */
+	img.avatar {
+	    width: 15%;
+	    border-radius: 50%;
+	}
+
+	/* Add padding to containers */
+	.container {
+	    padding: 16px;
+	    font-family: @dosis-light;
+	}
+
+	/* The "Forgot password" text */
+	span.psw {
+	    float: right;
+	    padding-top: 16px;
+	}
+
+	/* Change styles for span and cancel button on extra small screens */
+	@media screen and (max-width: 300px) {
+	    span.psw {
+	        display: block;
+	        float: none;
+	    }
+	    .cancelbtn {
+	        width: 100%;
+	    }
+	}
+
+	
+	/* The Modal (background) */
+	.modal {
+	    display: none; /* Hidden by default */
+	    position: fixed; /* Stay in place */
+	    z-index: 1; /* Sit on top */
+	    right: 0;
+	    top: 0;
+	    width: 40%; /* Full width */
+	    /*height: 80%; /* Full height */
+	    overflow: auto; /* Enable scroll if needed */
+	    background-color: rgb(0,0,0); /* Fallback color */
+	    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	}
+
+	/* Modal Content/Box */
+	.modal-content {
+	    background-color: #fefefe;
+	    margin: auto; /* 15% from the top and centered */
+	    /*border: 1px solid #888;*/
+	    width: 99%; /* Could be more or less, depending on screen size */
+	}
+
+	/* The Close Button */
+	.close {
+	    /* Position it in the top right corner outside of the modal */
+	    position: absolute;
+	    right: 25px;
+	    top: 0; 
+	    color: #000;
+	    font-size: 35px;
+	    font-weight: bold;
+	}
+
+	/* Close button on hover */
+	.close:hover,
+	.close:focus {
+	    color: red;
+	    cursor: pointer;
+	}
+
+	/* Add Zoom Animation */
+	.animate {
+	    -webkit-animation: animatezoom 0.6s;
+	    animation: animatezoom 0.6s
+	}
+
+	@-webkit-keyframes animatezoom {
+	    from {-webkit-transform: scale(0)} 
+	    to {-webkit-transform: scale(1)}
+	}
+
+	@keyframes animatezoom {
+	    from {transform: scale(0)} 
+	    to {transform: scale(1)}
+	}
+
+	.header-wrapper{
+		position: relative;
+		overflow: hidden;
+		margin-top: 20px;
+		padding-bottom: 10px;
+		
+		a{
+			position: relative;
+			text-decoration: none;
+			.logo-container{
+				position: relative;
+				width: 240px;
+				height: 60px;
+				margin-right: 50px;
+				float: left;
+				cursor: pointer;
+				img{
+					position: relative;
+					width: 100%;
+					height: 100%;
+				}
+			}
+		}
+		.title-container{
+			position: relative;
+			margin-right: 50px;
+			height: 30px;
+			box-sizing: border-box;
+			float: left;
+			h1{
+				font-family: @palaquin-bold;
+				font-size: 2rem;
+				text-decoration: none;
+				cursor: pointer;
+				color: @azulmedio;
+				padding: 0 10px;
+			}
+		}
+		.links-container{
+			position: relative;
+			margin-top: 40px;
+			margin-right: 50px;
+			height: 30px;
+			box-sizing: border-box;
+			ul{
+				position: relative;
+				top: 50%;
+				-webkit-transform: translateY(-50%);
+				-moz-transform: translateY(-50%);
+				-ms-transform: translateY(-50%);
+				-o-transform: translateY(-50%);
+				transform: translateY(-50%);		
+				overflow: hidden;
+				li{
+					float: left;
+					text-decoration: none;
+					a{
+						font-family: @dosis-light;
+						text-decoration: none;
+						cursor: pointer;
+						color: @azulmedio;
+						padding: 0 10px;
+					}
+					a:hover{
+						color: @azuloscuro;
+					}
+				}
+			}
+		}
+
+	}
+}
+
+/* PANEL NAVEGACION MODERADOR */
+.page-content{
+	position: relative;
+	min-height: 40vh;
+	margin: 5% 0;
+	width: 100%;
+	margin-top: 120px;
+}
+
+.no-margin-top{
+	margin-top: 2%;
+}
+
+.small-width{
+	width: 84%;
+	margin-left: 8%;
+	margin-right: 8%;
+}
+
+.lista_comentarios-page {
+	.menu{
+		position: relative;
+		width: 13%;
+		overflow: hidden;
+		float: left;
+		margin-top: 30px;
+		font-family: secondaryfont;
+		color: @black;
+	}
+	.general{
+		position: relative;
+		
+		.title{
+			position: relative;
+			font-size: 2rem;
+			font-family: secondaryfont;
+			color: @maincolour;
+			margin-bottom: 1%;
+		}
+		.general-comments-container{
+			position: relative;
+			width: 75%;
+			overflow: hidden;
+			.comment-container-flex{
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: center;
+				margin-bottom: 3%;
+				.child1 {
+					flex: 0.5 0 0;
+				}
+				.child2 {
+					flex: 2 0 0;
+
+					.form-comment {
+						margin-top: 1%;
+						display: inline-block;
+
+						button[type=submit] {
+							border: none;
+    						background-color: white;
+						}
+					}
+
+					.title{
+						font-size: 1.5rem;
+						font-family: @mainfont;
+						color: @secondarycolour;
+						text-decoration: none;
+					}
+					.normal{
+						font-size: 1rem;
+						font-family: @secondaryfont;
+						color: @secondarycolour;
+						text-decoration: none;
+						margin-bottom: 10px;
+					}
+					.comment{
+						font-size: 1rem;
+						font-family: @thirdfont;
+						color: @black;
+						text-decoration: none;
+
+					}
+					.comment:hover{
+						color: @maincolour;
+					}
+				}
+
+			}
+		}
+	}
+}
+
+/* PANEL NAVEGACION USUARIO */
+.form-datos {
+
+	margin-left: 2%;
+	
+	* {
+		box-sizing: border-box;
+	}
+
+	h2 {
+		font-size: 1.5em;
+		font-weight: bold;
+		margin: 2% 0%;
+	}
+
+	/* Style the input container */
+	.input-container {
+	  display: flex;
+	  width: 40%;
+	  margin-bottom: 15px;
+	}
+
+	/* Style the form icons */
+	.icon {
+	  padding: 10px;
+	  background: dodgerblue;
+	  color: white;
+	  min-width: 50px;
+	  text-align: center;
+	}
+
+	/* Style the input fields */
+	.input-field {
+	  width: 100%;
+	  padding: 10px;
+	  outline: none;
+	}
+
+	.input-field:focus {
+	  border: 2px solid dodgerblue;
+	}
+
+	/* Set a style for the submit button */
+	.btn {
+	  background-color: dodgerblue;
+	  color: white;
+	  padding: 15px 20px;
+	  border: none;
+	  cursor: pointer;
+	  width: auto;
+	  opacity: 0.9;
+	}
+
+	.btn:hover {
+	  opacity: 1;
+	}
+}

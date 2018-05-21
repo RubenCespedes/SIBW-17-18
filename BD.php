@@ -460,6 +460,65 @@
 			$sentencia->close();
 		}
 
+		function obtenerIdentificadorUsuario($nombre){
+			$sentencia = $this->conexion->prepare("SELECT id FROM `usuario` WHERE nombre = ?");
+
+		    $sentencia->bind_param("s", $nombre);
+
+		    $sentencia->execute();
+
+		    $resultado = $sentencia->get_result();
+
+		    $fila = $resultado->fetch_assoc();
+
+		    $id = $fila["id"];
+
+		    return $id;
+		}
+
+		function actualizarDatosPersonales($id, $name, $email){
+			// Preparamos y enlazamos
+			$sentencia = $this->conexion->prepare("UPDATE `usuario` SET `nombre` = ?, `correo` = ? WHERE `usuario`.`id` = ?");
+
+			$sentencia->bind_param("sss", $nombre, $correo, $identificador);
+
+			// Establecemos los parametros y ejecutamos
+			$nombre = $name;
+			$correo = $email;
+			$identificador = $id;
+
+			$sentencia->execute();
+
+			//echo "Nuevas filas introducidas correctamente";
+
+			$sentencia->close();
+		}
+
+		function obtenerComentarios(){
+			$sentencia = $this->conexion->prepare("SELECT * FROM `comentario`");
+
+			$sentencia->execute();
+
+			$result = $sentencia->get_result();
+
+			$comentarios = array();
+
+			while($fila = $result->fetch_assoc())
+				array_push($comentarios, $fila);
+
+			return $comentarios;
+		}
+
+		function borrarComentario($id){
+			$sql = "DELETE FROM comentario WHERE id=" . $id;
+
+			if ($this->conexion->query($sql) === TRUE) {
+			    echo "Record deleted successfully";
+			} else {
+			    echo "Error deleting record: " . $conn->error;
+			}
+		}
+
 		/*function obtenerObrasColeccion($coleccion){
             $sentencia = $this->conexion->prepare("SELECT id_obra FROM obrapertenececoleccion, coleccion WHERE obrapertenececoleccion.id_coleccion = coleccion.id AND coleccion.id = ?");
 
