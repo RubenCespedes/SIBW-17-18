@@ -16,6 +16,13 @@
 			</script>";
 	}
 
+	if (isset($_SESSION["changeComment"])) {
+		# code...
+		echo "<script type='text/javascript'>
+			window.alert('El comentario ha sido modificado correctamente');
+		</script>";
+	}
+
 	// Segun su rol, mostraremos un panel u otro
 	switch ($_SESSION['rol']) {
 		case 'usuario':
@@ -33,24 +40,37 @@
 			break;
 		case 'moderador':
 			# code...
+
 			include './BD.php';
 
 			$model = new Model();
 			$model->conectar();
 
-			// Array con los datos de todos los comentarios
-			$array_comments = $model->obtenerComentarios();
+			if ($_SERVER["REQUEST_METHOD"] == "POST") {
+				# code...
+				// Datos del comentario a editar
+				$comentario = $model->obtenerDatosComentario($_POST["id"]);
 
-			$model->desconectar();
+				include './backend/plantillaModerador.php';
 
-			$nombre = $_SESSION['usuario'];
+				// Imprimimos el formulario con los datos del comentario a editar
+				$vista = new Vista();
+				$vista->imprimirFormularioModerador($comentario, $_SESSION["usuario"]);
+			} else {
+				// Array con los datos de todos los comentarios
+				$array_comments = $model->obtenerComentarios();
 
-			include './backend/plantillaModerador.php';
+				$model->desconectar();
 
-			$vista = new Vista();
-			$vista->imprimirVistaModerador($array_comments, $nombre);
+				$nombre = $_SESSION['usuario'];
 
-			unsed($_SESSION['delete']);
+				include './backend/plantillaModerador.php';
+
+				$vista = new Vista();
+				$vista->imprimirVistaModerador($array_comments, $nombre);
+
+				unsed($_SESSION['delete']);
+			}			
 
 			break;
 		default:

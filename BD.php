@@ -489,8 +489,6 @@
 
 			$sentencia->execute();
 
-			//echo "Nuevas filas introducidas correctamente";
-
 			$sentencia->close();
 		}
 
@@ -509,6 +507,22 @@
 			return $comentarios;
 		}
 
+		function obtenerDatosComentario($id){
+			$sentencia = $this->conexion->prepare("SELECT * FROM `comentario` WHERE id=?");
+
+			$sentencia->bind_param("s", $identificator);
+
+			$identificator = $id;
+
+			$sentencia->execute();
+
+			$result = $sentencia->get_result();
+
+			$comentario = $result->fetch_assoc();
+
+			return $comentario;
+		}
+
 		function borrarComentario($id){
 			$sql = "DELETE FROM comentario WHERE id=" . $id;
 
@@ -517,6 +531,24 @@
 			} else {
 			    echo "Error deleting record: " . $conn->error;
 			}
+		}
+
+		function actualizarComentario($id, $autor, $fecha, $hora, $texto){
+			// Preparamos y enlazamos
+			$sentencia = $this->conexion->prepare("UPDATE `comentario` SET `autor` = ?, `fecha` = ?, `hora` = ?, `texto` = ? WHERE `comentario`.`id` = ?");
+
+			$sentencia->bind_param("sssss", $author, $date, $hour, $text, $identificator);
+
+			// Establecemos los parametros y ejecutamos
+			$author = $autor;
+			$date = $fecha;
+			$hour = $hora;
+			$text = $texto;
+			$identificator = $id;
+
+			$sentencia->execute();
+
+			$sentencia->close();
 		}
 
 		/*function obtenerObrasColeccion($coleccion){

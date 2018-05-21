@@ -4,6 +4,52 @@ class Vista {
 
 	}
 
+	function imprimirFormularioModerador($comentario, $nombre){
+		include 'head.php';
+		include 'footer.php';
+
+		imprimirHead();
+		
+		echo '<body>';
+
+		include 'header.php';
+
+		imprimirHeader($nombre);
+
+		echo '<div class="form-datos">
+				<form action="/backend/cambiarComentario.php" method="POST">
+					<h2>Datos del comentario</h2>
+					<div class="input-container">
+					    <i class="fa fa-user icon"></i>
+					    <input class="input-field" type="text" placeholder="Autorname" name="autor" value="' . $comentario["autor"] . '">
+					</div>
+		
+					<div class="input-container">
+						<i class="fa fa-calendar icon"></i>
+						<input class="input-field" type="text" placeholder="Date" name="fecha" value="' . $comentario["fecha"] . '">
+					</div>
+
+					<div class="input-container">
+						<i class="fa fa-clock-o icon"></i>
+						<input class="input-field" type="text" placeholder="Hour" name="hora" value="' . $comentario["hora"] . '">
+					</div>
+
+					<div class="input-container">
+						<i class="fa fa-comment icon"></i>
+						<input class="input-field" type="text" placeholder="Text" name="text" value="' . $comentario["texto"] . '">
+					</div>
+
+					<input type="text" name="uri" value="' . $_SERVER["REQUEST_URI"] .'" style="display:none;">
+					<input type="text" name="id" value="' . $comentario["id"] .'" style="display:none;">
+			
+					<button type="submit" class="btn">Actualizar datos</button>
+				</form>
+			</div>
+		</body>';
+
+		imprimirFooter();
+	}
+
 	function imprimirVistaModerador($array_comments, $nombre){
 		include 'head.php';
 		include 'footer.php';
@@ -76,7 +122,7 @@ class Vista {
 			        <div class="title"><p>' . $fila["fecha"] . '</p></div>
 			        <div class="normal"><p>' . $fila["autor"] . '</p></div>
 		   	        <a><div class="comment"><p>' . $fila["texto"] . '</p></div></a>
-		   	        <form class="form-comment" action="./backend/editComment.php" method="POST">
+		   	        <form class="form-comment" action="' . $_SERVER["PHP_SELF"] . '" method="POST">
 		   	        	<input type="text" name="id" style="display: none;" value="' . $fila["id"] . '"></input>
 		   	        	<input type="text" name="uri" style="display: none;" value="' . $_SERVER["REQUEST_URI"] . '"></input>
 		   	        	<button type="submit"><span><img src="./assets/image/edit.png"><span></button>
