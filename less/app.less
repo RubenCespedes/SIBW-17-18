@@ -1,0 +1,1691 @@
+/* css reset */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; } /* HTML5 display-role reset for older browsers */ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block; } body {line-height: 1; } ol, ul {list-style: none; } blockquote, q {quotes: none; } blockquote:before, blockquote:after, q:before, q:after {content: ''; content: none; } table {border-collapse: collapse; border-spacing: 0; }
+
+/*colores */
+@azulflojo: #9cb8d5; 
+@azulmedio: #7e9ab8;
+@azulnormal: #476484;
+@azuloscuro: #193145;
+
+/* Nuevos colores */
+@maincolour: #FC8702;
+@secondarycolour: #FDB25E;
+@basiccolour: #FFFFFF;
+@allusecolour: #FEDCB5;
+@black: #4C4848;
+
+/* COLORES TRADUCIDOS
+
+@azulflojo: #9cb8d5; rgb(156,184,213);
+@azulmedio: #7e9ab8; rgb(126,154,184);
+@azulnormal: #476484; rgb(71,100,132);
+@azuloscuro: #193145; rgb(25,49,69);
+
+*/
+
+inline {
+	display: inline-block;
+}
+
+body{
+	background-color: white;
+}
+/*fuentes*/
+@font-face {
+    font-family: 'mainfont';
+    src: url('../assets/fonts/Roboto-Black.ttf') format('truetype'),
+}
+@font-face {
+    font-family: 'secondaryfont';
+    src: url('../assets/fonts/Roboto-Medium.ttf') format('truetype'),
+}
+
+@font-face {
+	font-family: 'thirdfont';
+	src: url('../assets/fonts/Lato-Medium.ttf') format('truetype'),
+}
+
+/* Nuevas fonts */
+@mainfont: 'mainfont';
+@secondaryfont: 'secondaryfont';
+@thirdfont: 'thirdfont';
+
+
+@dosis-light: 'Dosis-Light';
+@palaquin-bold: 'palaquin-bold';
+@ropa-sans: 'ropa-sans';
+
+/* CSS PARA LOS FORMULARIOS QUE MUESTRAN LOS DATOS (USUARIOS, OBRAS, ETC...) */
+bpdy {
+	.form-datos {
+
+		* {
+			box-sizing: border-box;
+		}
+
+		/* Style the input container */
+		.input-container {
+		  display: flex;
+		  width: 40%;
+		  margin-bottom: 15px;
+		}
+
+		/* Style the form icons */
+		.icon {
+		  padding: 10px;
+		  background: dodgerblue;
+		  color: white;
+		  min-width: 50px;
+		  text-align: center;
+		}
+
+		/* Style the input fields */
+		.input-field {
+		  width: 100%;
+		  padding: 10px;
+		  outline: none;
+		}
+
+		.input-field:focus {
+		  border: 2px solid dodgerblue;
+		}
+
+		/* Set a style for the submit button */
+		.btn {
+		  background-color: dodgerblue;
+		  color: white;
+		  padding: 15px 20px;
+		  border: none;
+		  cursor: pointer;
+		  width: auto;
+		  opacity: 0.9;
+		}
+
+		.btn:hover {
+		  opacity: 1;
+		}
+	}
+}
+
+/* About us */
+.aboutus-page{
+	.top-photo{
+		position: relative;
+		height: 25vw;
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+	.wellcome-container{
+		position: relative;
+		margin-top: 5%;
+		margin-bottom: 4%;
+		.title{
+			position: relative;
+			margin-bottom: 30px;
+			font-size: 2rem;
+			font-family: @secondaryfont;
+			color: @maincolour;
+		}
+		.description{
+			position: relative;
+			margin-bottom: 20px;
+			font-size: 1.2rem;
+			font-family: @thirdfont;
+			color: @black;
+		}
+		.description:last-child{
+			margin-bottom: 0px;
+		}
+	}
+	.enviar-mensaje{
+		margin-bottom: 20px;
+		position: relative;
+		padding: 5px 10px;
+		float: left;
+		cursor: pointer;
+		margin-left: 8%;
+		border: 1px solid #7e9ab8;
+		border-radius: 20px;
+		background-color: @maincolour;
+		a{
+			text-decoration: none;
+			font-size: 1.4rem;
+			font-family: @secondaryfont;
+			color: @basiccolour;
+		}
+	}
+
+	.enviar-mensaje:hover{
+		box-shadow: 0 1px 6px @secondarycolour;
+		background-color: @secondarycolour;
+	}
+	.direction-container{
+		position: relative;
+		margin-top: 60px;
+		clear: both;
+		/*margin-bottom: 5%;*/
+		.title{
+			position: relative;
+			margin-bottom: 30px;
+			font-size: 2rem;
+			font-family: @secondaryfont;
+			color: @maincolour;
+			text-align: center;
+		}
+		.direction{
+			position: relative;
+			margin: 0 auto;
+			font-size: 1.2rem;
+			font-family: @thirdfont;
+			color: @black;
+			margin-bottom: 20px;
+			.bigger-txt{
+				font-size: 1.4rem;
+				font-family: @secondaryfont;
+				color: @black;
+			}
+		}
+		.map-container{
+			position: relative;
+			width: 100%;
+			height: 25vw;
+			iframe{
+				position: relative;
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+}
+
+/*  Elementos generales  */
+*:focus{
+	outline: none;
+}
+.no-select{
+	-webkit-touch-callout: none;
+    -webkit-user-select: none; 
+     -khtml-user-select: none; 
+       -moz-user-select: none; 
+        -ms-user-select: none;
+            user-select: none;
+}
+
+.withoutmargin{
+	margin-top: 0px !important;
+	margin-left: 0px !important;
+	margin-right: 10px;
+}
+.rightspace{
+	margin-right: 10px;
+}
+.blue-button{
+	background-color: #193145;
+	p{
+		color: white !important;
+	}
+}
+
+a{
+	position: relative;
+	text-decoration: none;
+	.button{
+		
+	}
+}
+
+.separator{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	position: relative;
+	width: 100%;
+	height: 1px;
+	background-color: @azuloscuro;
+}
+
+.date-input{
+	position: relative;
+	width: 120px;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+	height: 20px;
+	border: 1px solid @azulmedio;
+	border-radius: 20px;
+	box-sizing: border-box;
+	float: left;
+	margin-right: 10px; 
+	padding-left: 10px;
+}
+.date-input::-webkit-inner-spin-button{
+	display: none;
+}
+.date-input::-webkit-datetime-edit-month-field,
+.date-input::-webkit-datetime-edit-day-field,
+.date-input::-webkit-datetime-edit-year-field{
+	color: @azulmedio;
+}
+.date-input::-webkit-calendar-picker-indicator { 
+	color: @azulmedio;
+}
+
+.date-room-input{
+	position: relative;
+	float: left;
+	margin-left: 10px;
+	margin-top: 20px;
+	height: 28px;
+	width: 120px;
+	border: 1px solid @azuloscuro;
+	border-radius: 20px;
+	padding-left: 10px;
+}
+.date-room-input::-webkit-inner-spin-button{
+	display: none;
+}
+.date-room-input::-webkit-datetime-edit-month-field,
+.date-room-input::-webkit-datetime-edit-day-field,
+.date-room-input::-webkit-datetime-edit-year-field{
+	color: @azulmedio;
+}
+.date-room-input::-webkit-calendar-picker-indicator { 
+	color: @azulmedio;
+}
+
+.page-content{
+	position: relative;
+	min-height: 40vh;
+	/*margin: 5% 0;*/
+	width: 100%;
+	/*margin-top: 120px;*/
+}
+.no-margin-top{
+	margin-top: 30px;
+}
+
+.icon{
+	position: relative;
+	width: 30px;
+	height: 30px;
+	.tag-icon{
+		position: absolute;
+		top: -5px;
+		right: 0px;
+		height: 20px;
+		display: none;
+		border: 1px solid black;
+		p{
+			position: absolute;
+			padding: 0px 5px;
+		}
+	}
+	svg{
+		position: relative;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.slider{
+	position: relative;
+	.slider-container{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		.slide{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+		}
+		.active{
+			opacity: 1;
+		}
+	}
+	.slider-controller{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		.prev-button, .next-button{
+			position: absolute;
+			top: 50%;
+			-webkit-transform: translateY(-50%);
+			-moz-transform: translateY(-50%);
+			-ms-transform: translateY(-50%);
+			-o-transform: translateY(-50%);
+			transform: translateY(-50%);
+			width: 30px;
+			height: 30px;
+			cursor: pointer;
+			svg{
+				position: relative;
+				width: 100%;
+				height: 100%;
+				fill: @azulmedio;
+			}
+			svg:hover{
+				fill: white;
+			}
+		}
+		.prev-button{
+			left: 5%;
+		}
+		.next-button{
+			right: 5%;
+		}
+	}
+	.slider-content{
+		position: absolute;
+		bottom: 10%;
+		left: 8%;
+		width: 60%;
+		p{
+			position: relative;
+			font-size: 3.5rem;
+			color: white;
+			font-family: @dosis-light;
+		}
+	}
+}
+
+.form-slider{
+	position: relative;
+	width: 60%;
+	margin: 0 auto;
+	.bigger-height{
+		height: 200px !important;
+	}
+	.medium-height{
+		height: 150px !important;
+	}
+	.form-slider-container{
+		position: relative;
+		width: 100%;
+		height: 65px;
+		margin-bottom: 30px;
+		.form-slider-page{
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			display: none;
+			opacity: 0;
+			.row-form{
+				position: relative;
+				width: 100%;
+				margin-bottom: 15px;
+				overflow: hidden;
+				.label{
+					position: relative;
+					width: 38%;
+					margin-right: 2%;
+					float: left;
+					p{
+						text-align: right;
+						font-size: 1.2rem;
+						font-family: @dosis-light;
+						color: @azuloscuro;
+					}
+				}
+				.input{
+					position: relative;
+					width: 60%;
+					float: left;
+					.icons-container{
+						position: relative;
+						svg{
+							position: relative;
+							width: 30px;
+							height: 30px;
+							margin-right: 10px;
+							cursor: pointer;
+						}
+						svg:last-child{
+							margin-right: 0px;
+						}
+						svg:hover{
+							fill: red;
+						}
+					}
+					select{
+						position: relative;
+						height: 25px;
+						border: 1px solid @azuloscuro;
+						border-radius: 20px;
+						padding: 0 10px;
+						cursor: pointer;
+					}
+					select:hover{
+						outline: none;
+					}
+					.input-text{
+						position: relative;
+						width: 100%;
+						height: 25px;
+						border: 1px solid @azuloscuro;
+						border-radius: 20px;
+						padding: 0 10px;
+					}
+					.input-text-area{
+						position: relative;
+						resize: none;
+						width: 100%;
+						height: 60px;
+						border: 1px solid @azuloscuro;
+						border-radius: 20px;
+						padding: 10px;
+					}
+				}
+			}
+			.row-form:last-child{
+				margin-bottom: 0px;
+			}
+		}
+	}
+	.conditions-container{
+		position: relative;
+		width: 100%;
+		margin-bottom: 30px;
+		display: none;
+		.condition-container{
+			position: relative;
+			width: 100%;
+			margin-bottom: 10px;
+			overflow: hidden;
+			input{
+				position: relative;
+				width: 5%;
+				height: 20px;
+				border: 1px solid red;
+				border-radius: 20px;
+				box-sizing: border-box;
+				float: left;
+			}
+			p{
+				position: relative;
+				width: 94%;
+				float: left;
+				color: @azuloscuro;
+			}
+		}
+	}
+	.precio{
+		position: relative;
+		float: right;
+		margin: 20px 0;
+		font-size: 1.4rem;
+		line-height: 1.9rem;
+		color: @azuloscuro;
+		.smaller{
+			font-size: 1.2rem;
+			line-height: 1.7rem;
+			color: @azulflojo;
+		}
+	}
+	.buttons{
+		position: relative;
+		width: 100%;
+		overflow: hidden;
+		.prev-button{
+			position: relative;
+			border: 1px solid @azuloscuro;
+			border-radius: 20px;
+			box-sizing: border-box;
+			margin-right: 30px;
+			float: right;
+			padding: 5px;
+			display: none;
+			cursor: pointer;
+			p{
+				position: relative;
+				padding: 0 10px;
+			}
+		}
+		.next-button{
+			position: relative;
+			border: 1px solid @azuloscuro;
+			border-radius: 20px;
+			box-sizing: border-box;
+			float: right;
+			cursor: pointer;
+			padding: 5px;
+			p{
+				position: relative;
+				padding: 0 10px;
+			}
+		}
+		.cancel-button{
+			position: relative;
+			border: 1px solid @azuloscuro;
+			border-radius: 20px;
+			box-sizing: border-box;
+			margin-right: 30px;
+			padding: 5px;
+			float: right;
+			cursor: pointer;
+			p{
+				position: relative;
+				padding: 0 10px;
+			}
+		}
+		.confirm-button{
+			position: relative;
+			border: 1px solid @azuloscuro;
+			border-radius: 20px;
+			box-sizing: border-box;
+			float: right;
+			padding: 5px;
+			cursor: pointer;
+			p{
+				position: relative;
+				padding: 0 10px;
+			}
+		}
+	}
+}
+
+.go-to-valuations-button{
+	position: relative;
+	overflow: hidden;
+	margin: 0 auto;
+	width: 370px;
+	margin-top: 50px;
+	border: 1px solid #193145;
+	cursor: pointer;
+	border-radius: 20px;
+	.icon{
+		float: left;
+		position: relative;
+		margin-top: 10px;
+		margin-left: 10px;
+		padding-left: 15px;
+		padding-right: 5px;
+		padding-bottom: 10px;
+
+		height: 30px;
+		width: 30px;
+		cursor: pointer;
+		svg{
+			position: relative;
+			width: 100%;
+			height: 100%;
+		}
+	}
+	p{
+
+		float: left;
+		padding-left: 30px;
+		padding-top: 15px;
+		text-align: center;
+		position: relative;
+		font-size: 1rem;
+		font-family: @dosis-light;
+
+		color: #193145;
+	}
+}
+
+.title-page{
+	position: relative;
+	margin-bottom: 3%;
+	p.subtitle{
+		text-align: center;
+		font-size: 2rem;
+		font-family: @ropa-sans;
+		line-height: 2.5rem;
+		color: #193145;
+	}
+	p{
+		text-align: center;
+		font-size: 2.5rem;
+		font-family: @ropa-sans;
+		line-height: 3rem;
+		color: @azuloscuro; 
+	}
+}
+
+/* Tamaños del ancho */
+.big-width{
+	width: 100%;
+}
+
+/* solo para footer y header */
+.medium-width{ 
+	width: 45%;
+	margin-right: 4%;
+	margin-left: 4%;
+}
+
+.small-width{
+	width: 84%;
+	margin-left: 8%;
+	margin-right: 8%;
+}
+
+/*  Header  */
+header{
+	/*position: fixed;
+	top: 0px;
+	left: 0px;*/
+	z-index: 4;
+	background-color: white;
+	width: 100%;
+	border-bottom: 3px solid @maincolour;
+
+	.formLogout {
+		display: inline-block;
+		border: none;
+		max-height: 0px;
+	}
+
+	.logoutbtn {
+		position: relative;
+    	bottom: 40px;
+    	width: auto;
+	}
+
+	.inline {
+		display: inline-block;
+	}
+
+	.user-container {
+		display: none;
+	    width: 15%;
+	    margin-left: 25%;
+	    font-family: @mainfont;
+
+	    img {
+	    	width: 35%;
+	    	padding-bottom: 10px;
+	    }
+
+	    span {
+	    	position: relative;
+		    bottom: 45px;
+		    left: 15px;
+	    }
+	}
+
+	.signbtn {
+	    width: auto;
+	    position: absolute;
+	    top: 20px;
+	    right: 30px;
+	    font-size: 1.2em;
+	    border-radius: 5%;
+	    background-color: @maincolour;
+	    font-family: @mainfont;
+	    font-colour: @basiccolour;
+	}
+
+	.modal2 {
+		display: none; /* Hidden by default */
+		position: fixed; /* Stay in place */
+		z-index: 1; /* Sit on top */
+		right: 0;
+		top: 0;
+		width: 40%; /* Full width */
+		/*height: 100%; /* Full height */
+		overflow: auto; /* Enable scroll if needed */
+		background-color: #474e5d;
+		/*padding-top: 50px;*/
+
+		h1 {
+			font-size: 2em;
+			font-weight: bold;
+			margin-bottom: 10px;
+			font-family: @mainfont;
+			color: @secondarycolour;
+		}
+
+		p{
+			font-family: @mainfont;
+			color: @secondarycolour;
+		}
+
+		* {box-sizing: border-box}
+		/* Full-width input fields */
+		  input[type=text], input[type=password] {
+		  width: 100%;
+		  padding: 15px;
+		  margin: 5px 0 22px 0;
+		  display: inline-block;
+		  border: none;
+		  background: #f1f1f1;
+		  font-family: @thirdfont;
+
+		  color: @black;
+		}
+
+		/* Add a background color when the inputs get focus */
+		input[type=text]:focus, input[type=password]:focus {
+		  background-color: #ddd;
+		  outline: none;
+		}
+
+		/* Extra styles for the cancel button */
+		.cancelbtn {
+		  padding: 14px 20px;
+		  background-color: @secondarycolour;
+		}
+
+		/* Float cancel and signup buttons and add an equal width */
+		.cancelbtn, .signupbtn {
+		  float: left;
+		  width: 50%;
+		}
+
+		/* Add padding to container elements */
+		.container {
+		  padding: 16px;
+		}
+
+		/* Modal Content/Box */
+		.modal-content {
+		  background-color: #fefefe;
+		  margin: auto; /* 5% from the top, 15% from the bottom and centered */
+		  border: 1px solid @secondarycolour;
+		  width: 100%; /* Could be more or less, depending on screen size */
+		}
+
+		/* Style the horizontal ruler */
+		hr {
+		  border: 1px solid #f1f1f1;
+		  margin-bottom: 25px;
+		}
+
+		/* The Close Button (x) */
+		.close {
+		  position: absolute;
+		  right: 35px;
+		  top: 15px;
+		  font-size: 40px;
+		  font-weight: bold;
+		  color: #000;
+		}
+
+		.close:hover,
+		.close:focus {
+		  color: #f44336;
+		  cursor: pointer;
+		}
+
+		/* Clear floats */
+		.clearfix::after {
+		  content: "";
+		  clear: both;
+		  display: table;
+		}
+
+		/* Change styles for cancel button and signup button on extra small screens */
+		@media screen and (max-width: 300px) {
+		  .cancelbtn, .signupbtn {
+		    width: 100%;
+		  }
+		}
+	}
+
+	/* For me */
+	.loginbtn {
+	    width: auto;
+	    position: absolute;
+	    top: 20px;
+	    right: 140px;
+	    font-size: 1.2em;
+	    border-radius: 5%;
+	    background-color: @maincolour;
+	    font-color: @basiccolour;
+	    font-family: @mainfont;
+	}
+
+	/* Bordered form */
+	form {
+	    border: 3px solid #f1f1f1;
+	    font-family: @secondaryfont;
+	}
+
+	/* Full-width inputs */
+	input[type=text], input[type=password] {
+	    width: 100%;
+	    padding: 12px 20px;
+	    margin: 8px 0;
+	    display: inline-block;
+	    border: 1px solid #ccc;
+	    box-sizing: border-box;
+	    font-family: @secondaryfont;
+	}
+
+	/* Set a style for all buttons */
+	button {
+	    background-color: @maincolour;
+	    color: white;
+	    padding: 14px 20px;
+	    margin: 8px 0;
+	    border: none;
+	    cursor: pointer;
+	    width: 100%;
+	    font-family: @mainfont;
+	    font-size: 1em;
+	}
+
+	/* Add a hover effect for buttons */
+	button:hover {
+	    opacity: 0.8;
+	}
+
+	/* Extra style for the cancel button (red) */
+	.cancelbtn {
+	    width: auto;
+	    padding: 10px 18px;
+	    background-color: @secondarycolour;
+	}
+
+	/* Center the avatar image inside this container */
+	.imgcontainer {
+	    text-align: center;
+	    margin: 24px 0 12px 0;
+	}
+
+	/* Avatar image */
+	img.avatar {
+	    width: 15%;
+	    border-radius: 50%;
+	}
+
+	/* Add padding to containers */
+	.container {
+	    padding: 16px;
+	    font-family: @secondaryfont;
+	}
+
+	/* The "Forgot password" text */
+	span.psw {
+	    float: right;
+	    padding-top: 16px;
+	    a{
+	    	color: @secondarycolour;
+	    }
+	}
+
+	/* Change styles for span and cancel button on extra small screens */
+	@media screen and (max-width: 300px) {
+	    span.psw {
+	        display: block;
+	        float: none;
+	    }
+	    .cancelbtn {
+	        width: 100%;
+	    }
+	}
+
+	
+	/* The Modal (background) */
+	.modal {
+	    display: none; /* Hidden by default */
+	    position: fixed; /* Stay in place */
+	    z-index: 1; /* Sit on top */
+	    right: 0;
+	    top: 0;
+	    width: 40%; /* Full width */
+	    /*height: 80%; /* Full height */
+	    overflow: auto; /* Enable scroll if needed */
+	    background-color: rgb(0,0,0); /* Fallback color */
+	    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	}
+
+	/* Modal Content/Box */
+	.modal-content {
+	    background-color: #fefefe;
+	    margin: auto; /* 15% from the top and centered */
+	    /*border: 1px solid #888;*/
+	    width: 99%; /* Could be more or less, depending on screen size */
+	}
+
+	/* The Close Button */
+	.close {
+	    /* Position it in the top right corner outside of the modal */
+	    position: absolute;
+	    right: 25px;
+	    top: 0; 
+	    color: #000;
+	    font-size: 35px;
+	    font-weight: bold;
+	}
+
+	/* Close button on hover */
+	.close:hover,
+	.close:focus {
+	    color: red;
+	    cursor: pointer;
+	}
+
+	/* Add Zoom Animation */
+	.animate {
+	    -webkit-animation: animatezoom 0.6s;
+	    animation: animatezoom 0.6s
+	}
+
+	@-webkit-keyframes animatezoom {
+	    from {-webkit-transform: scale(0)} 
+	    to {-webkit-transform: scale(1)}
+	}
+
+	@keyframes animatezoom {
+	    from {transform: scale(0)} 
+	    to {transform: scale(1)}
+	}
+
+	.header-wrapper{
+		position: relative;
+		overflow: hidden;
+		margin-top: 20px;
+		padding-bottom: 10px;
+		
+		a{
+			position: relative;
+			text-decoration: none;
+			.logo-container{
+				position: relative;
+				width: 240px;
+				height: 60px;
+				margin-right: 50px;
+				float: left;
+				cursor: pointer;
+				img{
+					position: relative;
+					width: 100%;
+					height: 100%;
+				}
+			}
+		}
+		.title-container{
+			position: relative;
+			margin-right: 50px;
+			height: 30px;
+			box-sizing: border-box;
+			float: left;
+			h1{
+				font-family: @mainfont;
+				font-size: 2rem;
+				text-decoration: none;
+				cursor: pointer;
+				color: @maincolour;
+				padding: 0 10px;
+			}
+		}
+		.links-container{
+			position: relative;
+			margin-top: 40px;
+			margin-right: 50px;
+			height: 30px;
+			box-sizing: border-box;
+			ul{
+				position: relative;
+				top: 50%;
+				-webkit-transform: translateY(-50%);
+				-moz-transform: translateY(-50%);
+				-ms-transform: translateY(-50%);
+				-o-transform: translateY(-50%);
+				transform: translateY(-50%);		
+				overflow: hidden;
+				li{
+					float: left;
+					text-decoration: none;
+					a{
+						font-family: @mainfont;
+						text-decoration: none;
+						cursor: pointer;
+						color: @secondarycolour;
+						padding: 0 10px;
+					}
+					a:hover{
+						color: @allusecolour;
+					}
+				}
+			}
+		}
+
+	}
+}
+
+section {
+	.modal {
+
+	}
+}
+
+
+/******Páginas******/
+/*  Index page  */
+.index-page{
+	.menu{
+		position: relative;
+		width: 13%;
+		overflow: hidden;
+		float: left;
+		margin-top: 30px;
+		margin-bottom: 30px;
+		font-family: @secondaryfont;
+	}
+	.categorias{
+		position: relative;
+		padding-top: 3%;
+		.title{
+			position: relative;
+			font-size: 2rem;
+			font-family: @secondaryfont;
+			color: @black;
+			margin-bottom: 30px;
+		}
+		.categorias-cards-container{
+			position: relative;
+			width: 75%;
+			overflow: hidden;
+			.offer-card-container{
+				position: relative;
+				float: left;
+				width: 30%;
+				margin-right: 5%;
+				.photo-container{
+					position: relative;
+					width: 100%;
+					height: 250px;
+					background-position: center;
+					background-size: cover;
+					background-repeat: no-repeat;
+					.discount{
+						position: absolute;
+						top: 0px;
+						right: 0px;
+						width: 40px;
+						height: 20px;
+						background-color: rgba(255,255,255,0.5);
+						padding: 5px;
+						p{
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							color: @basiccolour;
+							font-family: @thirdfont;
+							-webkit-transform: translateY(-50%) translateX(-50%);
+							-moz-transform: translateY(-50%) translateX(-50%);
+							-ms-transform: translateY(-50%) translateX(-50%);
+							-o-transform: translateY(-50%) translateX(-50%);
+							transform: translateY(-50%) translateX(-50%);
+						}
+					}
+				}
+				.title{
+					position: relative;
+					font-size: 1.5rem;
+					font-family: @secondaryfont;
+					color: @secondarycolour;
+					margin: 15px 0;
+					padding-right: 5%;
+					a{
+						text-decoration: none;
+						color: @black;
+					}
+					a:hover{
+						color: @secondarycolour;
+
+					}
+				}
+				.description{
+					position: relative;
+					font-size: 1.2rem;
+					font-family: @thirdfont;
+					color: @allusecolour;
+					margin-bottom: 15px;
+					padding-right: 5%;
+				}
+				a{
+					overflow: hidden;
+					.price-button{
+						position: relative;
+						padding: 5px;
+						width: 73px;
+						float: left;
+						cursor: pointer;
+						border: 1px solid @azuloscuro;
+						border-radius: 20px; 
+						p{
+							position: relative;
+
+							padding: 0px 10px;
+							font-size: 1rem;
+							font-family: @thirdfont;
+							color: @allusecolour;
+						}
+					}				
+				}
+			}
+			.offer-card-container:nth-child(3n){
+				margin-right: 0px;
+			}
+		}
+		
+	}
+	.go-to-valuations-button{
+			position: relative;
+			overflow: hidden;
+			cursor: pointer;
+			margin: 0 auto;
+			width: 230px;
+			margin-top: 50px;
+			border: 1px solid @azuloscuro;
+			border-radius: 20px;
+			p{
+				position: relative;
+				float: left;
+				padding-left: 50px;
+				padding-top: 5px;
+				padding-bottom: 5px;
+				font-size: 1rem;
+				font-family: @dosis-light;
+				color: @azuloscuro;
+			}
+		}
+}
+
+/*  Footer   */
+footer{
+	position: relative;
+	width: 100%;
+	border-top: 3px solid @secondarycolour;
+	display: inline-block;
+
+	.all-width {
+		width: 92%;
+		margin-right: 4%;
+    	margin-left: 4%;
+	}
+
+	.footer-wrapper{
+		position: relative;
+		margin-top: 40px;
+		margin-bottom: 20px;
+		overflow: hidden;
+		.contact-container{
+			position: relative;
+			width: 20%;
+			margin-right: 3%;
+			float: left;
+			.title{
+
+				position: relative;
+				text-transform: uppercase;
+				font-size: 1.1rem;
+				font-family: @mainfont;
+				margin-bottom: 15px;
+				color: @maincolour;
+			}
+			.address, .telephone, .email{
+				position: relative;
+				font-size: 1rem;
+				font-family: @thirdfont;
+				color: @black;
+				line-height: 1.5rem;
+				span:hover{
+					color: @maincolour;
+					cursor: pointer;
+				}
+			}
+			a{
+				position: relative;
+				text-decoration: none;
+				.email{
+
+				}
+			}
+			
+		}
+		.time-container{
+			position: relative;
+			width: 20%;
+			float: left;
+			.title{
+				position: relative;
+				text-transform: uppercase;
+				font-size: 1.1rem;
+				font-family: @mainfont;
+				color: @maincolour;
+				margin-bottom: 15px;
+			}
+			.time, .hour{
+				overflow: hidden;
+				margin-bottom: 10px;
+				p{
+					font-size: 1rem;
+					font-family: @thirdfont;
+					color: @black;
+					float: left;
+					margin-top: 7px;
+					margin-left: 10px;
+				}
+				svg{
+					position: relative;
+					width: 30px;
+					height: 30px;
+					float: left;
+				}
+			}
+			.hour{
+				margin-bottom: 0px;
+				svg{
+					width: 28px;
+					height: 28px;
+				}
+			}
+		}
+		.social-copyright-container{
+			position: absolute;
+			bottom: 0px;
+			right: 0px;
+			width: 300px;
+			overflow: hidden;
+			.social{
+				position: relative;
+				float: right;
+				margin-bottom: 15px;
+				svg{
+					position: relative;
+					float: left;
+					width: 25px;
+					height: 25px;
+					margin-right: 15px;
+					cursor: pointer;
+				}
+				svg:last-child{
+					margin-right: 0px;
+				}
+			}
+			.copyright{
+				position: relative;
+				float: right;
+				p{
+					position: relative;
+					font-size: 0.8rem;
+					font-family: @secondaryfont;
+				}
+			}
+
+		}
+	}
+}
+
+/* CODIGO CSS PARA OBRA.PHP */
+
+/* LOS SIGUIENTES DESCRIPTORES CORRESPONDEN A LOS BOTONES SOCIALES (CODIGO ANIADIDO DE W3SCHOOL) */
+
+.fa {
+  	padding: 5%;
+  	font-size: 30px;
+  	width: 12%;
+  	text-align: center;
+  	text-decoration: none;
+  	margin: 5px 2px;
+  	border-radius: 50%;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+	font-size: 2.2em !important;
+}
+
+.fa-twitter {
+    background: #55ACEE;
+	color: white;
+	font-size: 2.2em !important;
+}
+
+.fa-google {
+    background: #dd4b39;
+	color: white;
+	font-size: 2.2em !important;
+}
+
+/* CONTENEDOR QUE CONTIENE EL CONTENIDO DE OBRA.PHP */
+.contenido-obra {
+	float: right;
+	padding-bottom: 1%;
+	margin-top: 1%;
+	width: 70%;
+
+	form {
+		input[type="submit"]{
+			background-color: #9cb8d5;
+		    border: none;
+		    color: white;
+		    padding: 2% 4%!important;
+		    text-align: center;
+		    text-decoration: none;
+		    display: inline-block;
+		    border-radius: 10px;
+		    transition-duration: 0.4s;
+		    cursor: pointer;
+		    font-family: @mainfont;
+		    font-size: 1.3em;
+		}
+	}
+}
+
+/* CONTENEDOR DEL PIE DE LA IMAGEN DE LA OBRA */
+.pie-obra {
+	margin-top: 0.5%;
+	margin-left: 1%;
+	font-family: @thirdfont;
+}
+
+/* CONTENEDOR DEL AUTOR DE LA OBRA */
+.contenedor-autor-obra {
+	width: 27%;
+	border-top: solid 2px #9cb8d5;
+    border-bottom: solid 2px #9cb8d5;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    float: left;
+    margin-top: 1%;
+    text-align:  center;
+}
+
+/* FORMATO PARA LA DESCRIPCION DEL AUTOR DE UNA OBRA */
+.descripcion-autor {
+	padding-left: 1%;
+    padding-right:  1%;
+    margin-top: 1%;
+}
+
+/* CONTENEDOR CON LA DESCRIPCION DE LA OBRA */
+.descripcion-obra {
+	float: left;
+    width: 48%;
+    margin-top: 0.5%;
+    text-align:  center;
+	padding-top: 1%;
+}
+
+/* FORMATO PARA EL TITULO DE LA OBRA */
+.titulo-obra {
+	font-size:  2em;
+    font-family: @mainfont;
+}
+
+/* FORMATO PARA LA DATACION DE LA OBRA */
+.datacion-obra {
+	margin-top: 1%;
+   	font-family: @secondaryfont;
+}
+
+/* FORMATO PARA EL TEXTO QUE DESCRIBE UNA OBRA */
+.texto-descripcion-obra {
+	margin-top: 1%;
+    padding-left: 1%;
+   	padding-right: 1%;
+}
+
+/* CONTENEDOR PARA LOS BOTONES SOCIALES */
+.botones-sociales {
+	float: left;
+	width: 24%;
+    margin-top: 3%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-top: solid 2px #9cb8d5;
+    border-bottom: solid 2px #9cb8d5;
+}
+
+/* HIPERENLACE PARA IMPRIMIR */
+.hiperenlace-imprimir {
+	display: inline-block;
+    float: right;
+    font-size: 4.0em;
+    text-align: center;
+    text-decoration: none;
+    margin: 1%;
+    margin-right: 0%;
+	a{
+		color: inherit;
+	}
+}
+
+.print {
+	font-size: 1em !important; /* SOBRESCRIBE EL font-size QUE TRAEN LOS ICONOS, QUITA LOS 24px */
+	a{
+		color: inherit;
+	}
+}
+
+/* CONTENEDOR PARA LOS ENLACES EXTERNOS */
+.enlaces-externos {
+	display: inline-block;
+    margin-top: 1%;
+    padding-left: 5%;
+	width: 45%;
+}
+
+.titulo-destacado {
+	font-family:  ropa-sans;
+}
+
+/* FORMATO PARA LA LISTA DE ENLACES EXTERNOS DE UNA OBRA */
+.lista-enlaces-externos {
+	list-style: disc;
+	margin-left: 10%;
+	margin-top: 1%;
+}
+
+/* CODIGO DE OBRA.PHP ANIADIDO EN LA SEGUNDA PRACTICA */
+.contenedor-comentarios {
+	z-index: 1;
+    position: fixed;
+    right: 0%;
+    display: none;
+    width: 45%;
+    height: 83%;
+    padding: 0% 1% 0% 1%;
+    border-radius: 5px;
+    background-color: rgba(255,255,255,0.9);
+    overflow: auto;
+
+    .close {
+    	font-size: 3em;
+    	transition: 0.3s;
+    }
+
+    .close:hover,
+    .close:focus {
+    	color: #7e9ab8;
+    	text-decoration: none;
+    	cursor: pointer;
+    }
+
+    .form {
+    	border: solid #9cb8d5;
+    	border-radius: 5px;
+    	padding: 20px;
+    	font-family: Dosis-Light;
+    }
+
+    textarea {
+    	width: 100%;
+	    height: 20%;
+	    padding: 12px 20px;
+	    margin: 8px 0;
+	    display: inline-block;
+	    border: 1px solid #ccc;
+	    border-radius: 4px;
+	    -webkit-box-sizing: border-box;
+	    box-sizing: border-box;
+	    font-family: Dosis-Light;
+    }
+
+    input[type=text] {
+	    width: 100%;
+	    padding: 12px 20px;
+	    margin: 8px 0;
+	    display: inline-block;
+	    border: 1px solid #ccc;
+	    border-radius: 4px;
+	    box-sizing: border-box;
+	    font-family: Dosis-Light;
+	}
+
+	input[type=email] {
+	    width: 100%;
+	    padding: 12px 20px;
+	    margin: 8px 0;
+	    display: inline-block;
+	    border: 1px solid #ccc;
+	    border-radius: 4px;
+	    box-sizing: border-box;
+    	font-family: Dosis-Light;
+	}
+
+	input[type=reset] {
+	    width: 100%;
+	    background-color: #476484;
+	    color: white;
+	    padding: 14px 20px;
+	    margin: 8px 0;
+	    border: none;
+	    border-radius: 4px;
+	    cursor: pointer;
+	}
+
+	input[type=reset]:hover {
+	    background-color: #193145;
+	}
+}
+
+.comentario {
+	height: 20%;
+	border: solid #9cb8d5;
+	border-radius: 10px;
+	padding: 1% 1% 0% 1%;
+	font-family: Dosis-Light;
+	margin-bottom: 2%;
+
+	.superior {
+		margin-bottom: 1%;
+
+		.autor {
+			display: inline-block;
+		}
+
+		.contenedor-fecha {
+			display: inline-block;
+			float: right;
+			width: 35%;
+
+			.fecha {
+				float: left;
+			}
+
+			.hora {
+				float: right;
+			}
+		}
+	}
+
+	.inferior {
+		height: 69%;
+		border: solid #9cb8d5;
+		border-radius: 12px;
+		padding: 1% 0% 0% 1%;
+	}
+}
+
+.contenedor-boton-comentarios {
+	display: inline-block;
+    width: 24%;
+    height: 17%;
+    margin-top: 1%;
+    margin-left: 0.7%;
+}
+
+.boton-comentarios {
+	background-color: #9cb8d5;
+    border: none;
+    color: white;
+    padding: 9% 18%!important;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 10px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    font-family: Dosis-Light;
+    font-size: 1.3em;
+}
+
+.boton-comentarios:hover {
+	background-color: #7e9ab8;
+	color: white;
+}
+
+
+/* CODIGO CSS PARA IMPRIMIR_OBRA.PHP */
+.imprimir {
+	color: black; background-color: white; font-family: 'Assistant';
+}
+
+.autor-imprimir {
+	width: 23%;
+	border-top: solid 2px #9cb8d5;
+    border-bottom: solid 2px #9cb8d5;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin-top: 15%;
+    text-align:  center;
+    display:  inline-block;
+    float:  left;
+}
+
+.descripcion-imprimir {
+	width: 76%;
+            text-align:  center;
+            padding-top: 1%;
+            display:  inline-block;
+}
+
+.logo-imprimir {
+    float:  right;
+}
+
+.titulo-imprimir {
+	font-size:  2em;
+                font-family: Dosis-Light;
+                width: 70%;
+                display:  inline-block;
+}
+
+.datacion-imprimir {
+	margin-top: 1%;
+                font-family: palaquin-bold;
+                width:  70%;
+                display:  inline-block;
+}
+
+.imagen-imprimir {
+	float: right;
+	margin: 2%;
+}
+
+.enlaces-imprimir {
+	margin-top: 1%;
+	margin-left: 1%;
+}
