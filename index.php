@@ -12,19 +12,44 @@
 	if(empty($_GET)){
 		
 		/* MOSTRAMOS EL INDEX */
-		$ids = array();
+		$ids = array(); // Vector donde almacenamos los ids de las obras a mostrar
 
 		$modelo = new Model();
 		$modelo->conectar();
 
-		while(count($ids) < 9){	// Necesitamos obtener los identificadores de 9 obras distintas
-			$random = rand(1, $modelo->obtenerUltimaObra());
+		if (isset($_SESSION["usuario"]) && $_SESSION["rol"] == "gestor") {
 
-			while(in_array($random, $ids)){
-				$random = rand(1, $modelo->obtenerUltimaObra());
+			$ultm_id = $modelo->obtenerUltimaObra(); // Id de la ultima obra (publicada o no)
+
+			while(count($ids) < 9){
+				
+				// Obtenemos un numero aleatorio entre 1 y el id de la ultima obra
+				$random = rand(1, $ultm_id);
+
+				// Si dicho id se encuentra ya en el vector, volvemos a realizar el random
+				while(in_array($random, $ids)){
+					$random = rand(1, $ultm_id);
+				}
+
+				array_push($ids, $random);
 			}
+		} else {
+			$obras_no_pub = array(); // Vector donde almacenamos los ids de las obras no publicadas
+			$obras_no_pub = $modelo->obtenerObrasNoPublicadas();
 
-			array_push($ids, $random);
+			$ultm_id = $modelo->obtenerUltimaObraPublicada(); // Id de la ultima obra publicada
+
+			while(count($ids) < 9){
+				// Obtenemos un numero aleatorio entre 1 y el id de la ultima obra publicada
+				$random = rand(1, $ultm_id);
+
+				// Si dicho id se encuentra ya en el vector o pertenece a una obra NO publicada, volvemos a realizar el random
+				while(in_array($random, $ids) || in_array($random, $obras_no_pub)){
+					$random = rand(1, $ultm_id);
+				}
+
+				array_push($ids, $random);
+			}
 		}
 
 		$paths = array();

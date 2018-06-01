@@ -110,6 +110,47 @@
 			return $id;
 		}
 
+		function obtenerUltimaObraPublicada(){
+			$sentencia = $this->conexion->prepare("SELECT MAX(id) FROM obra WHERE publicado=true");
+
+			$sentencia->execute();
+
+			$id = NULL;
+
+			$sentencia->bind_result($id);
+
+			$sentencia->fetch();
+
+			$sentencia->close();
+
+			return $id;
+		}
+
+		function obtenerObrasNoPublicadas(){
+			// Preparamos la sentencia (la mandamos al servidor y este comprueba la sintaxis e inicializa los recursos)
+			$sentencia = $this->conexion->prepare("SELECT id FROM obra WHERE publicado=false");
+
+			// La ejecutamos
+			$sentencia->execute();
+
+			// Obtenemos un conjunto de resultados de la sentencia preparada
+			$resultado = $sentencia->get_result();
+
+			$ids = array(); // Vector donde almacenaremos los ids de las obras no publicadas
+
+			// Vamos obteniendo todas las filas de resultado como un vector asociativo
+			while($fila = $resultado->fetch_assoc()){
+				// Añadimos al vector anterior el campo 'id' de cada tupla obtenida
+				array_push($ids, $fila["id"]);
+			}
+
+			// Cerramos la sentencia preparada
+			$sentencia->close();
+
+			// Devolvemos el array con los ids de las obras no publicadas
+			return $ids;
+		}
+
 		function obtenerBiografiaAutor($autor){
 			$sentencia = $this->conexion->prepare("SELECT biografia FROM autor WHERE nombre = ?");
 
