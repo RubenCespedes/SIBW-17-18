@@ -19,7 +19,7 @@ class Vista {
 
 		echo '<section class="index-page page-content">';
 
-		imprimirSidebar();
+		imprimirSidebarBusqueda();
 
 		echo '<div class="categorias small-width">
 	            <p class="title">Algunas Obras</p>
