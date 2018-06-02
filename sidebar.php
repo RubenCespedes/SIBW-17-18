@@ -3,7 +3,10 @@
 	function imprimirSidebarBusqueda(){
 		echo '<div class="search-container">
     		<form action="/action_page.php">
-      			<input type="text" placeholder="Search.." name="search">
+      			<input type="text" placeholder="Search.." onkeyup="showResult(this.value)" list="consejos">
+      			<datalist id="consejos">
+      				<option value="Apple"><a href="www.google.es"></a></option>
+      			</datalist>
       			<button type="submit"><i class="fa fa-search"></i></button>
     		</form>
   		</div>
