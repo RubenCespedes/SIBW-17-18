@@ -1,11 +1,16 @@
 <?php
-$xmlDoc=new DOMDocument();
-$xmlDoc->load("obras.xml");
-
-$x=$xmlDoc->getElementsByTagName('link');
-
 //get the q parameter from URL
 $q=$_GET["search"];
+$rol = $_GET["rol"];
+
+$xmlDoc=new DOMDocument();
+
+if ($rol == "gestor")
+  $xmlDoc->load("obras.xml");
+else
+  $xmlDoc->load("obrasPublicadas.xml");
+
+$x=$xmlDoc->getElementsByTagName('link');
 
 //lookup all links from the xml file if length of q>0
 if (strlen($q)>0) {

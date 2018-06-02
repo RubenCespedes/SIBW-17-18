@@ -17,7 +17,13 @@
 		$modelo = new Model();
 		$modelo->conectar();
 
-		if (isset($_SESSION["usuario"]) && $_SESSION["rol"] == "gestor") {
+		if (isset($_SESSION["rol"])) {
+			$rol = $_SESSION["rol"];
+		} else {
+			$rol = "";
+		}
+
+		if (isset($_SESSION["usuario"]) && $rol == "gestor") {
 
 			$ultm_id = $modelo->obtenerUltimaObra(); // Id de la ultima obra (publicada o no)
 
@@ -67,7 +73,7 @@
 		include 'plantillaMainPage.php';
 
 		$vista = new Vista();
-		$vista->imprimirIndex($ids, $paths, $titulos, $autores, $ids);
+		$vista->imprimirIndex($ids, $paths, $titulos, $autores, $ids, $rol);
 	} else {
 		if(!empty($_GET["obra"])){
 

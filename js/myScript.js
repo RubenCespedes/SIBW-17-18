@@ -83,29 +83,6 @@ function forbiddenWords(){
     var words = words.join(" ");
 
     document.getElementById("comentario").value = words;
-    /*var img = [ <?php echo implode("','",$imagenes);?> ]
-	var num_palabras = prohibidas.length;
-	var i;
-	var encontrado = -1;
-	var texto = document.getElementById("comentario").value;
-	var nuevo_texto;
-
-	for(i=0; i < num_palabras && encontrado === -1; i=i+1){
-		encontrado = texto.indexOf(prohibidas[i]);
-	}
-
-	if(encontrado !== -1){
-		var asteriscos = "*";
-		var k;
-
-		for (k=0; k < prohibidas[i-1].length-1; k=k+1) {
-            asteriscos += "*";
-        }
-
-		nuevo_texto = texto.replace(prohibidas[i-1],asteriscos);
-
-		document.getElementById("comentario").value = nuevo_texto;
-	}*/
 }
 
 function aniadir_comentario(){
@@ -150,7 +127,7 @@ function aniadir_comentario(){
     parte2;
 }
 
-function showResult(str) {
+function showResult(str, rol) {
     if (str.length==0) {
         document.getElementById("livesearch").innerHTML="";
         document.getElementById("livesearch").style.border="0px";
@@ -170,6 +147,6 @@ function showResult(str) {
         }
     }
     
-    xmlhttp.open("GET","livesearch.php?search="+str,true);
+    xmlhttp.open("GET","livesearch.php?search="+str+"&rol="+rol,true);
     xmlhttp.send();
 }

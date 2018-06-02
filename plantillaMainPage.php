@@ -4,7 +4,7 @@ class Vista {
 
 	}
 
-	function imprimirIndex($ids, $paths, $titulos, $autores, $id_obras){
+	function imprimirIndex($ids, $paths, $titulos, $autores, $id_obras, $rol){
 		include 'head.php';
 		include 'header.php';
 		include 'footer.php';
@@ -19,7 +19,7 @@ class Vista {
 
 		echo '<section class="index-page page-content">';
 
-		imprimirSidebarBusqueda();
+		imprimirSidebarBusqueda($rol);
 
 		echo '<div class="categorias small-width">
 	            <p class="title">Algunas Obras</p>

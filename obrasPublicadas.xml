@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <pages>
   <link>
-    <title>La Gioconda</title>
-    <description>El Retrato de Lisa Gherardini, esposa de Francesco del Giocondo,​ más conocido como La Gioconda (La Joconde en francés), o Mona Lisa, es una obra pictórica del pintor renacentista italiano Leonardo da Vinci. Fue adquirida por el rey Francisco I de Francia a principios del siglo XVI y desde entonces es propiedad del Estado Francés. Se exhibe en el Museo del Louvre de París.Su nombre, La Gioconda (la alegre, en castellano), deriva de la tesis más aceptada acerca de la identidad de la modelo: la esposa de Francesco Bartolomeo de Giocondo, que realmente se llamaba Lisa Gherardini, de donde viene su otro nombre: Mona (señora, en el italiano antiguo) Lisa. El Museo del Louvre acepta el título completo indicado al principio como el título original de la obra, aunque no reconoce la identidad de la modelo y tan solo la acepta como una hipótesis</description>
-    <url>index.php?obra=1</url>
-  </link>
-  <link>
     <title>La ultima cena</title>
     <description>La última cena (en italiano: Il cenacolo o L’ultima cena) es una pintura mural original de Leonardo da Vinci ejecutada entre 1495 y 1497. Se encuentra en la pared sobre la que se pintó originariamente, en el refectorio del convento dominico de Santa Maria delle Grazie, en Milán (Italia), declarado Patrimonio de la Humanidad por la Unesco en 1980. La pintura fue elaborada para su patrón, el duque Ludovico Sforza de Milán. No es un fresco tradicional, sino un mural ejecutado al temple y óleo sobre dos capas de preparación de yeso extendidas sobre enlucido. Mide 460 cm de alto por 880 cm de ancho. Muchos expertos e historiadores del arte consideran La última cena como una de las mejores obras pictóricas del mundo</description>
     <url>index.php?obra=2</url>
@@ -33,11 +28,6 @@
     <url>index.php?obra=6</url>
   </link>
   <link>
-    <title>El gran masturbador</title>
-    <description>El gran masturbador es un famoso cuadro del pintor español Salvador Dalí pintado en 1929. Está hecho mediante la técnica del óleo sobre lienzo, es de estilo surrealista y sus medidas son 110 x 150 cm. Se conserva en Madrid, en el Museo Reina Sofía pues fue legado por Dalí a España</description>
-    <url>index.php?obra=7</url>
-  </link>
-  <link>
     <title>La Cara de la Guerra</title>
     <description>Dalí representa un rostro sin cuerpo flotando en un paisaje desolador de un desierto. El rostro se marchita como la de un cadáver y tiene una expresión de miseria, angustia, llanto y dolor. En su boca y cuencas de los ojos muestra caras idénticas, en un proceso que parece ser infinito
 
@@ -62,11 +52,6 @@ La desintegración de la persistencia de la memoria
     <title>La noche estrellada</title>
     <description>La noche estrellada (en neerlandés De sterrennacht) es la obra maestra del pintor postimpresionista Vincent van Gogh. El cuadro lo realizó en el sanatorio Saint-Rémy-de-Provence, donde se recluyó hacia el final de su vida. Fue pintada a mediados de 1889, trece meses antes de la muerte de van Gogh. Desde 1941 forma parte de la colección permanente del Museo de Arte Moderno de Nueva York. Considerado como el magnum opus de van Gogh, el cuadro ha sido reproducido en numerosas ocasiones y es conocida como una de las pinturas mas famosas de la historia. Usó óleo humedecido y pinceles finos para realizar la obra</description>
     <url>index.php?obra=11</url>
-  </link>
-  <link>
-    <title>La Casa Amarilla</title>
-    <description>La casa amarilla es el título dado a una pintura al óleo del pintor holandés postimpresionista Vincent van Gogh, realizada en el año 1888. La casa albergaba el estudio que alquiló en el mes de septiembre, ya que deseaba arraigar en una casa que sintiese como propia. Allí se trasladó el día 17, y sus cartas reflejan el optimismo que le embargaba entonces</description>
-    <url>index.php?obra=12</url>
   </link>
   <link>
     <title>El grito</title>

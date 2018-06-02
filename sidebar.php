@@ -1,9 +1,9 @@
 <?php
 	// Imprime el sidebar con una barra de busqueda
-	function imprimirSidebarBusqueda(){
+	function imprimirSidebarBusqueda($rol){
 		echo '<div class="search-container">
     		<form action="/action_page.php">
-      			<input type="text" placeholder="Search.." onkeyup="showResult(this.value)">
+      			<input type="text" placeholder="Search.." onkeyup="showResult(this.value,\'' . $rol . '\')">
       			<button type="submit"><i class="fa fa-search"></i></button>
       			<div id="livesearch"></div>
     		</form>
